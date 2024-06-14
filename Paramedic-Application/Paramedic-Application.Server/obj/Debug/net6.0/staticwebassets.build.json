@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "Ev0cL7lp7p9lCfcKlKYccxajiW3Ju+ccJTV8tSF/d7A=",
+  "Source": "Paramedic-Application.Server",
+  "BasePath": "_content/Paramedic-Application.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\paramedic-application.client.esproj",
+      "Version": 2,
+      "Source": "paramedic-application.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

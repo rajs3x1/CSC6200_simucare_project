@@ -1,0 +1,226 @@
+/*:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}*/
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #004e66a6;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    display: flex; /* Changed to flex to align logo and nav */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out logo and nav */
+    overflow: hidden;
+}
+
+#logo {
+    height: 75px; /* Adjusted for mobile */
+    width: auto;
+    margin-right: 20px;
+}
+
+nav {
+    background: #006633;
+}
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Display the nav items inline */
+    }
+
+    nav li {
+        padding: 0.5em 1em; /* Spacing for nav items */
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+a1 {
+    color: green;
+    text-decoration: none;
+}
+
+p1 {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+a {
+    color: yellow;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #003366;
+}
+
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+    .image-row img {
+        max-width: 100%;
+        height: auto;
+        border: 3px solid #003366;
+    }
+/* Caption styling */
+caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Table header styling */
+thead {
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+    thead th {
+        padding: 10px; /* Add padding to table header cells */
+    }
+
+/* Table body styling */
+tbody {
+    background-color: #ffffff; /* White background */
+}
+
+    tbody td {
+        padding: 10px; /* Add padding to table body cells */
+    }
+
+/* Responsive Styles */
+
+/* For tablets and above */
+@media (min-width: 768px) {
+    #logo {
+        height: 100px; /* Larger logo for larger screens */
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav li {
+        padding: 0.5em 1em; /* Adjust nav item spacing */
+    }
+}
+
+/* For large screens */
+@media (min-width: 1200px) {
+    body {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    header {
+        padding: 0 20px;
+    }
+
+    main {
+        padding: 40px 20px; /* More padding on larger screens */
+    }
+
+    .image-row img {
+        border: 4px solid #003366; /* Thicker border for larger images */
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 767px) {
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    nav li {
+        text-align: center; /* Center align nav items */
+        padding: 10px; /* Larger tap targets for mobile */
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    footer {
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+        font-size: 12pt;
+    }
+
+    header, nav, footer, .image-row, #logo {
+        display: none; /* Hide elements not necessary for printing */
+    }
+
+    main {
+        padding: 0;
+    }
+
+    h1, h2 {
+        color: black;
+    }
+
+    section {
+        page-break-inside: avoid; /* Avoid breaking sections across pages */
+    }
+
+    a {
+        text-decoration: underline; /* Show that it's a link */
+        color: black; /* Ensure links are visible */
+    }
+
+        a[href]:after {
+            content: " (" attr(href) ")"; /* Show URL after links */
+        }
+}
