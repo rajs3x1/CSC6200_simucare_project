@@ -2,7 +2,7 @@
 "SpaProxyServer": {
 "ServerUrl": "https://localhost:5173",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\..\\paramedic-application.client",
+"WorkingDirectory": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\..\\paramedic-application.client",
 "MaxTimeoutInSeconds": "120"
 }
 }

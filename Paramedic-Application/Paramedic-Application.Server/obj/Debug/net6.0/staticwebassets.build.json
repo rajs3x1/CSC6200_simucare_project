@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "Ev0cL7lp7p9lCfcKlKYccxajiW3Ju+ccJTV8tSF/d7A=",
+  "Hash": "JTFXPqSPxc+/YkBriyRvR2usZLpgTT5ddtLkod8qsvA=",
   "Source": "Paramedic-Application.Server",
   "BasePath": "_content/Paramedic-Application.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\paramedic-application.client.esproj",
+      "Identity": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\paramedic-application.client.esproj",
       "Version": 2,
       "Source": "paramedic-application.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

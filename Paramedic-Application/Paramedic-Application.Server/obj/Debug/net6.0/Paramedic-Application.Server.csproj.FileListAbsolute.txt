@@ -34,3 +34,39 @@ D:\Simucare\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application
 D:\Simucare\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.pdb
 D:\Simucare\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.genruntimeconfig.cache
 D:\Simucare\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\ref\Paramedic-Application.Server.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\appsettings.Development.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\appsettings.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\spa.proxy.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Paramedic-Application.Server.exe
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Paramedic-Application.Server.deps.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Paramedic-Application.Server.runtimeconfig.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Paramedic-Application.Server.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Paramedic-Application.Server.pdb
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Microsoft.AspNetCore.SpaProxy.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.csproj.AssemblyReference.cache
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\spa.proxy.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.AssemblyInfoInputs.cache
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.AssemblyInfo.cs
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.csproj.CoreCompileInputs.cache
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.MvcApplicationPartsAssemblyInfo.cs
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.MvcApplicationPartsAssemblyInfo.cache
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.sourcelink.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets.build.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets.development.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets\msbuild.Paramedic-Application.Server.Microsoft.AspNetCore.StaticWebAssets.props
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets\msbuild.build.Paramedic-Application.Server.props
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Paramedic-Application.Server.props
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Paramedic-Application.Server.props
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\staticwebassets.pack.json
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\scopedcss\bundle\Paramedic-Application.Server.styles.css
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedi.C9180B29.Up2Date
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\refint\Paramedic-Application.Server.dll
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.pdb
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\Paramedic-Application.Server.genruntimeconfig.cache
+D:\CSC6200 Capstone\CSC6200_simucare_project\Paramedic-Application\Paramedic-Application.Server\obj\Debug\net6.0\ref\Paramedic-Application.Server.dll
