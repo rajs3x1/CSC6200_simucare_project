@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj": {}
+    "C:\\Users\\work\\Source\\Repos\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.server\\paramedic-application.server.csproj": {}
   },
   "projects": {
-    "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj": {
+    "C:\\Users\\work\\Source\\Repos\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.server\\paramedic-application.server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj",
-        "projectName": "Paramedic-Application.Server",
-        "projectPath": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj",
-        "packagesPath": "C:\\Users\\Vincent\\.nuget\\packages\\",
-        "outputPath": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\obj\\",
+        "projectUniqueName": "C:\\Users\\work\\Source\\Repos\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.server\\paramedic-application.server.csproj",
+        "projectName": "paramedic-application.server",
+        "projectPath": "C:\\Users\\work\\Source\\Repos\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.server\\paramedic-application.server.csproj",
+        "packagesPath": "C:\\Users\\work\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\work\\source\\repos\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Vincent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -26,8 +26,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -43,16 +43,12 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.SpaProxy": {
-              "target": "Package",
-              "version": "[6.*-*, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.5.0, )"
+              "version": "[6.4.0, )"
             }
           },
           "imports": [
@@ -74,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

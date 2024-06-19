@@ -1,0 +1,6 @@
+@paramedic_application.server_HostAddress = http://localhost:5195
+
+GET {{paramedic_application.server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
