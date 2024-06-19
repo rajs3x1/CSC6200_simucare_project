@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj": {}
+    "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj": {}
   },
   "projects": {
-    "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj": {
+    "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj",
+        "projectUniqueName": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj",
         "projectName": "Paramedic-Application.Server",
-        "projectPath": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj",
+        "projectPath": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\Paramedic-Application.Server.csproj",
         "packagesPath": "C:\\Users\\Vincent\\.nuget\\packages\\",
-        "outputPath": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\obj\\",
+        "outputPath": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\Paramedic-Application.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vincent\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,24 +66,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.29, 6.0.29]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.29, 6.0.29]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.29, 6.0.29]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.29, 6.0.29]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

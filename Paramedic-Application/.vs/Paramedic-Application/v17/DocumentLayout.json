@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\",
+  "WorkspaceRootPath": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}|paramedic-application.client\\paramedic-application.client.esproj|d:\\simucare\\csc6200_simucare_project\\paramedic-application\\paramedic-application.client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}|paramedic-application.client\\paramedic-application.client.esproj|d:\\csc6200 capstone\\csc6200_simucare_project\\paramedic-application\\paramedic-application.client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}|paramedic-application.client\\paramedic-application.client.esproj|solutionrelative:paramedic-application.client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}|paramedic-application.client\\paramedic-application.client.esproj|d:\\simucare\\csc6200_simucare_project\\paramedic-application\\paramedic-application.client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}|paramedic-application.client\\paramedic-application.client.esproj|d:\\csc6200 capstone\\csc6200_simucare_project\\paramedic-application\\paramedic-application.client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}|paramedic-application.client\\paramedic-application.client.esproj|solutionrelative:paramedic-application.client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "index.css",
-              "DocumentMoniker": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\src\\index.css",
+              "DocumentMoniker": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\src\\index.css",
               "RelativeDocumentMoniker": "paramedic-application.client\\src\\index.css",
-              "ToolTip": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\src\\index.css",
+              "ToolTip": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\src\\index.css",
               "RelativeToolTip": "paramedic-application.client\\src\\index.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -36,9 +36,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "index.html",
-              "DocumentMoniker": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\index.html",
+              "DocumentMoniker": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\index.html",
               "RelativeDocumentMoniker": "paramedic-application.client\\index.html",
-              "ToolTip": "D:\\Simucare\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\index.html",
+              "ToolTip": "D:\\CSC6200 Capstone\\CSC6200_simucare_project\\Paramedic-Application\\paramedic-application.client\\index.html",
               "RelativeToolTip": "paramedic-application.client\\index.html",
               "ViewState": "AQIAAAMAAAAAAAAAAAAkwA4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",

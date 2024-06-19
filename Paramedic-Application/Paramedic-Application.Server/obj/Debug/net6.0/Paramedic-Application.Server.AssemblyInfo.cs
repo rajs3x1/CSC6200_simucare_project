@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Paramedic-Application.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c983a47dbb110e3a389e7d38bdc671752884b8d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64e4397cafc29e8d1ed1db411d00e9cd4b61de58")]
 [assembly: System.Reflection.AssemblyProductAttribute("Paramedic-Application.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Paramedic-Application.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
