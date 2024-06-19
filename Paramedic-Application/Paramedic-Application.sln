@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paramedic-Application.Server", "Paramedic-Application.Server\Paramedic-Application.Server.csproj", "{8A179D09-390F-4FE5-A020-A8285B53F9D0}"
-EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "paramedic-application.client", "paramedic-application.client\paramedic-application.client.esproj", "{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paramedic-application.server", "paramedic-application.server\paramedic-application.server.csproj", "{EE3EF49E-23D8-4C2C-ABD7-CAE764B9A9B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF1B2E90-55D8-4958-A97B-55CB41C9D66A}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +18,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8A179D09-390F-4FE5-A020-A8285B53F9D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A179D09-390F-4FE5-A020-A8285B53F9D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A179D09-390F-4FE5-A020-A8285B53F9D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A179D09-390F-4FE5-A020-A8285B53F9D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13AFB9B9-6BEF-4313-8564-F9C0D0C703AF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EE3EF49E-23D8-4C2C-ABD7-CAE764B9A9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3EF49E-23D8-4C2C-ABD7-CAE764B9A9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3EF49E-23D8-4C2C-ABD7-CAE764B9A9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3EF49E-23D8-4C2C-ABD7-CAE764B9A9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

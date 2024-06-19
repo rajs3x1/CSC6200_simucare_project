@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Paramedic-Application.Server.props" />
-</Project>
