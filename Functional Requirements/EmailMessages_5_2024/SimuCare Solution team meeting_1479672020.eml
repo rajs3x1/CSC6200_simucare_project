@@ -1,0 +1,235 @@
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fsMrkfN+6Xv0R/zLwZ15xVIKCMUfvfG0xGlrAyNtNVH3u63AFyDu2zFSjhLyMKeiJ9DILeEAmZI2XGrOvop1xjAGazpAs6Pgh2f8XZ0QFvhYgQMUwaeNktZTUVnyYzje4teXjoIYCiTq/5UA9P2WjByQRJhika11940TRSoxXgtb+K7/6olynEEcoYR4M4WVumzsBxa6ETjHpOtMlO5eOb1bVXk9AfLm/e4K0yLPesZK9Txv0lUJxH1gonkUG4WZk+1LdONRELUqfjOzdA9N7HZ16u12NCFWCsbFSR0kr/QVtjurAPnlWaRvySI95Z9XL023X3F9PmGqfxCedt31kQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=znL0M1OrkGrR22RXfvfXfj9wsnFpPeBOY8Lk1pN6VNA=;
+ b=FvakZm3lKOMrcvA+rq4c/h6EBBw0ncZtB6Eq+NJB1W+/gqFMOKyKIYNnK9Qlv1PAis9nWAU8KbBNO+ZWHXpPTk4gPftlg4nLJlnO7iqrbnduK40zRgA+Q5c0iYCntUi0trE0cD+y2v36KI9YuQLJYPEZzmkv5zbblLtwqTdL6oJSMessKoTFX7xCQt/qqQu4y5GEM2OMqDkAoYNvzhVoO8Ucjvd2LKjVc4J09ahBQGm6d309hmRMnAt9wH71L2iOvdnTMvNXGEO93BlH6wn4R/bNTw3gkEkrptJH+G1sEYhbK9gSmtvkk6EkAMMqhuc7a5T9ZU89ivLJHpWXVxDprg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none (sender ip is
+ 209.85.214.182) smtp.rcpttodomain=au.teams.ms smtp.mailfrom=umail.usq.edu.au;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=umail.usq.edu.au;
+ dkim=pass (signature was verified)
+ header.d=umail-usq-edu-au.20230601.gappssmtp.com; arc=none (0)
+Received: from ME3P282CA0174.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:1cb::11)
+ by ME4P282MB0808.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:98::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7611.30; Tue, 28 May
+ 2024 11:30:34 +0000
+Received: from ML1PEPF00011309.ausprd01.prod.outlook.com
+ (2603:10c6:220:1cb:cafe::29) by ME3P282CA0174.outlook.office365.com
+ (2603:10c6:220:1cb::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.18 via Frontend
+ Transport; Tue, 28 May 2024 11:30:34 +0000
+Authentication-Results: spf=none (sender IP is 209.85.214.182)
+ smtp.mailfrom=umail.usq.edu.au; dkim=pass (signature was verified)
+ header.d=umail-usq-edu-au.20230601.gappssmtp.com;dmarc=fail action=none
+ header.from=umail.usq.edu.au;compauth=pass reason=106
+Received-SPF: None (protection.outlook.com: umail.usq.edu.au does not
+ designate permitted sender hosts)
+Received: from mail-pl1-f182.google.com (209.85.214.182) by
+ ML1PEPF00011309.mail.protection.outlook.com (10.167.241.86) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7633.15
+ via Frontend Transport; Tue, 28 May 2024 11:30:34 +0000
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-1f4a52b94c3so6341925ad.3
+        for <54c31da4.USQPRD.onmicrosoft.com@au.teams.ms>; Tue, 28 May 2024 04:30:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=umail-usq-edu-au.20230601.gappssmtp.com; s=20230601; t=1716895832; x=1717500632; darn=au.teams.ms;
+        h=content-class:msip_labels:content-language:thread-index
+         :content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=znL0M1OrkGrR22RXfvfXfj9wsnFpPeBOY8Lk1pN6VNA=;
+        b=gxatH0d7OqfK0SxsDRbmYN4h2uSwdhjOrlsOs+OMELRNydkY/rFlhXP7UP/4qFAhah
+         ljAwW4c5Y9VJ3W9UchiXMC9ORUGV3pkuvHjSBwPjnYx5TpPp4sNzJevB53IjLmkrEd8x
+         Vi+x8fjPQtQPqyHcJbL6iCQfI2ORedD/c6LFT5RINaU6Wbq2X5Y9zBzg1WT7t/zCli7u
+         8Z9th/BSlV4Yl7MvvSjFaPFKy+XHJqSZfu11GYLHIqJgaEY0v07aJQxo7EgHlm6Qw4c/
+         tsFp5Y/+dcxCmaIUUHWLDWGxZGmmxkcPsVXK7pUAFAZgPyciMHweqcOz+XTrY4Vgt37G
+         emWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716895832; x=1717500632;
+        h=content-class:msip_labels:content-language:thread-index
+         :content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=znL0M1OrkGrR22RXfvfXfj9wsnFpPeBOY8Lk1pN6VNA=;
+        b=GtLJwsZmrlUiixa/TyQ6wPY3izjfEriWoxmQa9HWHgNHYj9/P7+dr8CwYbQu7dHE2V
+         7hloU3FBGpzRPo5HDxNLTsPEi3pwqO6VwLQoxhsRL+hHR2oesdLl3JYyDNUVk5NYY++U
+         VdxJYI7SviZdHH3ezbhIZShyTNiS6wpJGDP+btKwUyB+GmCDhMFbMVQDypYYCj7BmNXn
+         55CZ0V9PeBjtWK00hc2gjEvnXxm+xY1NMmddfJro6kIhYh+6UBlZgU6dhHPO7HujVSuV
+         l6Ip1BTyaQOREnzU1cAb0pSmgqz8sYiCuIMp7dmImxGbhvpfd+Io+sapymhxFKk9yoUF
+         l8mA==
+X-Gm-Message-State: AOJu0Yyk/GgA06YHT+3amCmQgvXddR2K5bkF+sOMh/974T8i/M5EyazM
+	8ZnX+uHxNuTDAMvj8+pVdYjIrOCq0yltqnvV9qKwMQqUgGj7jcNYOcFLVz/Otc1YAGLQsnogvfK
+	4Kyw=
+X-Google-Smtp-Source: AGHT+IF51iA0ky3d+Bbhrhn32qar90ipFy6Y7UHfEXUGhuKEHZMIP/ML8xbi9eDxem16UKYkQLJibg==
+X-Received: by 2002:a17:903:188:b0:1f4:bd38:2e15 with SMTP id d9443c01a7336-1f4bd3830ddmr29233995ad.10.1716895832484;
+        Tue, 28 May 2024 04:30:32 -0700 (PDT)
+Return-Path: u1153259@umail.usq.edu.au
+Received: from DadsPC (167-179-185-17.a7b3b9.bne.nbn.aussiebb.net. [167.179.185.17])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f44c967a62sm78144075ad.120.2024.05.28.04.30.29
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 28 May 2024 04:30:31 -0700 (PDT)
+From: u1153259@umail.usq.edu.au
+X-Google-Original-From: <U1153259@umail.usq.edu.au>
+To: "'UniSQ - Paramedicine App - CSC3600 CSC6200 T2_2024'" <54c31da4.USQPRD.onmicrosoft.com@au.teams.ms>,
+	"Thanh Tu Nguyen" <ThanhTu.Nguyen@unisq.edu.au>,
+	"Minh" <u1159258@umail.usq.edu.au>,
+	"Joden" <u1155210@umail.usq.edu.au>
+Subject: SimuCare Solution team meeting
+Date: Tue, 28 May 2024 21:30:26 +1000
+Message-ID: <08c901dab0f2$72605120$5720f360$@umail.usq.edu.au>
+MIME-Version: 1.0
+Content-Type: text/calendar; method=REQUEST;
+	charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: Adqw8k0Nmxn/Isr5SWOuyLf2rtu/6gAACKLg
+Content-Language: en-gb
+msip_labels:
+Content-Class:
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: f0de4b2c-7eec-422d-a7a1-729d5702c640:0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ML1PEPF00011309:EE_|ME4P282MB0808:EE_
+X-MS-Exchange-Forest-ArrivalHubServer: ME4P282MB0808.AUSP282.PROD.OUTLOOK.COM
+X-MS-Exchange-Forest-MessageScope: 7c150a4f-13f8-4a29-9a00-062a12f0f13f
+X-MS-Office365-Filtering-Correlation-Id: 0a132ea8-e0b8-4840-0235-08dc7f09972b
+X-MS-Exchange-Forest-RulesExecuted: ME4P282MB0808
+X-Microsoft-Antispam: BCL:0;ARA:13230031|43022699006;
+X-Microsoft-Antispam-Message-Info:
+ =?utf-8?B?Q0ZkeVlFRmo4WE9JcEdRa1JqNVRha0I3RmwxWGx4V1pLQ0ZpajRxWTZmUER2?=
+ =?utf-8?B?K2VjSHJDa0dhb2pnWFpqajhLNHBtdzVoZ0tYR2lCVXVDT0RUYXgybUE2OXFC?=
+ =?utf-8?B?a3NyQzhxQnN0QitET1pOSGk4ZUQ0UnFWTDUva0FVTnZUaVgrbHp0Y3V1MC8z?=
+ =?utf-8?B?MStrSHpMcmFab3VCWDQ1YVdLRFpiYUN4eVRjS0U0OFRZaDlXYnh4R3hVM3RR?=
+ =?utf-8?B?UlEvNUN5YW1lcUxaYWhRbmEvVFVkdGc3bjFPOUNKMWNEanFaTFpQREU4VnJj?=
+ =?utf-8?B?dUdnV3NXMFViem5RZ0RPYlR0c0I5MEJVK1hINFNIRThHL3h1T1YwNlJ4MFBY?=
+ =?utf-8?B?amtLUm1EVjExSS90WEM0dFhzNWlUMEp2bTQ5a1kwVENRN0xEbXdRTmpNSDE5?=
+ =?utf-8?B?UEdRYk5YL2pmdTc1N21aaE5iMk8yb0xNRkhBa1Nxb1VpWlRhT0Z2ZTFLTktC?=
+ =?utf-8?B?c0ZhNUk1eGFvbTVDK2ZDN2RHOFZKazNER3VqOVpVbWlHNmIwNlVDTjhZMDVO?=
+ =?utf-8?B?OWI1SUdDQmxQaWVZeHJzbzhnVVMwK29SWUN0MjdsblY1QlBsUm9scWpmcHVt?=
+ =?utf-8?B?dmtsT1lQZnB5VUs2T29iWEZPSEt4bURPb3FGYjI1Q3V0YXZzVWx6NUJYSW40?=
+ =?utf-8?B?UUVlL3daWnU1dmxEdGFQd0x4OUJTSThqVVd3TUt6TXFxaVl4bEZQNklHUzg5?=
+ =?utf-8?B?a0pNMXZxd3dIbXMyaHRsYTUyNXUrZm5xV2k4MjA1ZmQxOVhZVFEyMGY3ZWlS?=
+ =?utf-8?B?clhONUlUL3dmeG55N2lmeFRKbFd6UW43YmtWYkxkNUhoTXRXQzhYWk9pckZY?=
+ =?utf-8?B?Wkd0NDdCeHA1VjlxenBnZmltMVdSeUZQcU1PQUg4cmJDREdBNjloL3lVaThE?=
+ =?utf-8?B?MDNzYnRjTEpDd1dmN0pBa1N3N01paHNOZlVUYzI4Z2VRSVkzNnlkV29Gc3RT?=
+ =?utf-8?B?TXhjV0w0b1FJODd4N1hRdkZ4MjBOM1NkcExoMDhrQzdEM3Z1VnRrazN2VXFS?=
+ =?utf-8?B?emJHVUdMSFJyMXZHam1CRW1sR0M3SExxcGFqenFsUldkazlIUGZhNDdiUE1u?=
+ =?utf-8?B?SjdEVmJyZHhqa0dxNmFxdXNYVEhMSVpXRWI5TjVOVGVOS1JzTEcvd3gyLzVF?=
+ =?utf-8?B?VExodlJDSm4wS0hDclJOSTBLNVlqY09rYy85NldQZXV1QjN6WG4xM2RLTExJ?=
+ =?utf-8?B?OWhvTENpS1Q3eTdSVTc1aU1QNWFGekZqeEdCclREcXp5OVJ4cjQrbmZPZ1JQ?=
+ =?utf-8?B?STh4TWkxdE1mVWphd2VLc0RkZjc4VDd3SzUxN0VWRmE5T3dpT2NZK3dkaFVF?=
+ =?utf-8?B?dFZhczhEQUs2ZDU3SnZoNXZkNi96SzFDVVk3VmUyRy9uTXBlUmhZdThWdDVx?=
+ =?utf-8?B?Tm5OVkttMTFMRnNDUGIwNXphWjY1aGlvYlRwWHUwUmdYUjBpakorcVRUM3ZD?=
+ =?utf-8?B?K0NndGxHRTFVeTNVWVFvSTI4S01Ka3pNU2hxRmRWSTNoZXJodHNDcG54MkxG?=
+ =?utf-8?B?ejJ5TG0rZjRQR2JTSjZjcUhodHZwcVFKVnVJOW42c28zTjFBZHN3S1ZyMTBn?=
+ =?utf-8?B?cjVXL1Q3VVFBZmJST05JRVg1Q3M4eldHV3N3cUFXSWhEbXB0eW5haGF1UXgz?=
+ =?utf-8?B?NVhrMGlSTVlUajhsV21TdTV0akErcFIybUpUNlBQNjNhOHhCcGpydGE5Wmg2?=
+ =?utf-8?B?ak5oK002aGpUZjRZWFVMcGw1TTZKM1hMcXUzaDM5Wm14YURQeGVkRS8xQlpa?=
+ =?utf-8?B?ekpvZmJDbGdveWNSa1JUTTNlcUhmYXhzczVpY2RXdllJOHJsaTA2WDR0OU51?=
+ =?utf-8?B?MmE1M1dXcEM3aDIxOFQ4Tk1SZy9hTFlLcnBCbmRuQmJxVTR0elRIL3dDcTZU?=
+ =?utf-8?B?NURlRzdab2lCRzdYZFcxNWpkZ1JIcGZBb3k4aExJSnZIRlpZaDltclpTQXZV?=
+ =?utf-8?B?eUtNWnZHeXNjUkdDUVUzNWNkTTlUS2dxeEMrMFhwSVBhckZGYi9reDBwRW9q?=
+ =?utf-8?B?andwYmlpQWYwNjBjSktqUm9KbU9KcjlnMG0rVGpGNG91THZ1bFFTL3ppZTB0?=
+ =?utf-8?B?WXZra1ZXN05LU20rWjBTWmNCbGRyZFBmUlNoMXlGYlp2Mmp3ZDhLaWR1a1d2?=
+ =?utf-8?B?bXdqTC9HZ3hpK3FFMCtNOEZ6a05PMU1Ibi8wRGNtaytvcTVWVUxEQXNvZDNX?=
+ =?utf-8?B?dkVOSXF2Y1QzZ2NVUmpucTk3aVhabXBwR1M1VE8xQjBHb3o0TnNCU2JpYVZr?=
+ =?utf-8?B?aHJvSmxkNmVnblpmM0VHSkJvRm0yREY0VjVvSnZRWVREOGpTZ2ZFNmxPQU1p?=
+ =?utf-8?B?Y2dtM0s0Q2ZKdnNtUlBvTVovT2JYYVcxemtiRkJlZUFDWENNa1E2VTRHb1Uy?=
+ =?utf-8?B?cVRoeU5lMlQzR3RlVkdxTmpFT3p6YWpycDB3RW8ydnFHQm4zMVZNV05PNWJk?=
+ =?utf-8?B?RnpjbFZueE5zaFJTekJSQ1B0azZZNU9qaUNIcTFmekdLSFVMaHZ5RUxtd2x3?=
+ =?utf-8?B?ZkNVb2VZSlU4SUFsMnFtdWpXVmhCN3FBbzIwajZUTm5HRFJ4K3RPeDZIOTRs?=
+ =?utf-8?B?cVlkdVJyV2tZNXd6Zm96dFhKK1BLSGtmaXl2R1BRc3pycnVQMjl2WVVTZHhE?=
+ =?utf-8?B?bXRlOUxlUT09?=
+X-Forefront-Antispam-Report:
+ CIP:209.85.214.182;CTRY:US;LANG:vi;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-pl1-f182.google.com;PTR:mail-pl1-f182.google.com;CAT:NONE;SFS:(13230031)(43022699006);DIR:INB;
+X-MS-Exchange-Forest-Language: vi
+X-MS-Exchange-Forest-IndexAgent-0:
+ AQ0CdmkAARkAAAAPAAADH4sIAAAAAAAEAGMAAI3vAtIBAAAA
+X-MS-Exchange-Forest-IndexAgent: 1 36
+X-MS-Exchange-Forest-EmailMessageHash: 94B81AA3
+X-OriginatorOrg: au.teams.ms
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2024 11:30:34.7379
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a132ea8-e0b8-4840-0235-08dc7f09972b
+X-MS-Exchange-CrossTenant-Id: f0de4b2c-7eec-422d-a7a1-729d5702c640
+X-MS-Exchange-CrossTenant-AuthSource:
+ ML1PEPF00011309.ausprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ME4P282MB0808
+
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:E. Australia Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+1000
+TZOFFSETTO:+1000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VTIMEZONE
+TZID:Unnamed Time Zone 1
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+1000
+TZOFFSETTO:+1000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN="UniSQ - Paramedicine App - CSC3600 CSC6200 T2_2024";RSVP=TRUE:
+	mailto:54c31da4.USQPRD.onmicrosoft.com@au.teams.ms
+ATTENDEE;CN="Thanh Tu Nguyen";RSVP=TRUE:mailto:ThanhTu.Nguyen@unisq.edu.au
+ATTENDEE;CN=Minh;RSVP=TRUE:mailto:u1159258@umail.usq.edu.au
+ATTENDEE;CN=Joden;RSVP=TRUE:mailto:u1155210@umail.usq.edu.au
+CLASS:PUBLIC
+CREATED:20240528T113026Z
+DESCRIPTION: \n\n
+DTEND;TZID="Unnamed Time Zone 1":20240604T200000
+DTSTAMP:20240528T113026Z
+DTSTART;TZID="Unnamed Time Zone 1":20240604T190000
+LAST-MODIFIED:20240528T113026Z
+ORGANIZER;CN=U1153259@umail.usq.edu.au:mailto:U1153259@umail.usq.edu.au
+PRIORITY:5
+RRULE:FREQ=WEEKLY;COUNT=11;BYDAY=TU
+SEQUENCE:0
+SUMMARY;LANGUAGE=en-gb:SimuCare Solution team meeting
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000B0E34AE945B1DA01000000000000000
+	01000000098D6D50BA85A104FA283E02D3AFAF3AA
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv=Co
+	ntent-Type content="text/html\; charset=us-ascii"><meta name=Generator con
+	tent="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font Definition
+	s */\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 4 6 
+	3 2 4\;}\n@font-face\n	{font-family:Aptos\;}\n/* Style Definitions */\np.M
+	soNormal\, li.MsoNormal\, div.MsoNormal\n	{margin:0cm\;\n	font-size:12.0pt
+	\;\n	font-family:"Aptos"\,sans-serif\;\n	mso-ligatures:standardcontextual\
+	;\n	mso-fareast-language:EN-US\;}\nspan.EmailStyle18\n	{mso-style-type:per
+	sonal-compose\;}\n.MsoChpDefault\n	{mso-style-type:export-only\;\n	font-si
+	ze:10.0pt\;\n	mso-ligatures:none\;}\n@page WordSection1\n	{size:612.0pt 79
+	2.0pt\;\n	margin:72.0pt 72.0pt 72.0pt 72.0pt\;}\ndiv.WordSection1\n	{page:
+	WordSection1\;}\n--></style><!--[if gte mso 9]><xml>\n<o:shapedefaults v:e
+	xt="edit" spidmax="1026" />\n</xml><![endif]--><!--[if gte mso 9]><xml>\n<
+	o:shapelayout v:ext="edit">\n<o:idmap v:ext="edit" data="1" />\n</o:shapel
+	ayout></xml><![endif]--></head><body lang=EN-GB link="#467886" vlink="#966
+	07D" style='word-wrap:break-word'><div class=WordSection1><p class=MsoNorm
+	al><o:p>&nbsp\;</o:p></p></div></body></html>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOSTARTCHECK:FALSE
+X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+

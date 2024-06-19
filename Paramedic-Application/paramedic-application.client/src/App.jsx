@@ -1,49 +1,63 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import './App.css'
+import { useEffect, useState } from 'react'
 
 function App() {
-    const [forecasts, setForecasts] = useState();
+    const [loggedIn, setLoggedIn] = useState()
+    const [email, setEmail] = useState('')
+    const [emailError, setEmailError] = useState()
+    const [password, setPassword] = useState()
+    const [passwordError, setpasswordError] = useState()
+
+    const onButtonClick = () => {
+        // Navigate to Welcome.html for now, we will run the authentication here
+        
+
+        window.location.href = './views/Welcome.html'; 
+    }
 
     useEffect(() => {
-        populateWeatherData();
+        getStudentToken();
     }, []);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
-
     return (
-        <div>
-            <h1 id="tabelLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
+        <div className="login">
+            <div className={'mainContainer'}>
+                <div className={'titleContainer'}>
+                    <div>Login</div>
+                </div>
+                <br />
+                <div className={'inputContainer'}>
+                    <input
+                        value={email}
+                        placeholder="Enter your email here"
+                        onChange={(ev) => setEmail(ev.target.value)}
+                        className={'inputBox'}
+                    />
+                    <label className="errorLabel">{emailError}</label>
+                </div>
+                <br />
+                <div className={'inputContainer'}>
+                    <input
+                        value={password}
+                        placeholder="Enter your password here"
+                        onChange={(ev) => setPassword(ev.target.value)}
+                        className={'inputBox'}
+                    />
+                    <label className="errorLabel">{passwordError}</label>
+                </div>
+                <br />
+                <div className={'inputContainer'}>
+                    <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+                </div>
+            </div>
         </div>
-    );
-    
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
+    )
+
+    async function getStudentToken() {
+        const response = await fetch('studentToKen');
         const data = await response.json();
-        setForecasts(data);
+        setLoggedIn(data);
     }
 }
 
-export default App;
+export default App
