@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Entity\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>
