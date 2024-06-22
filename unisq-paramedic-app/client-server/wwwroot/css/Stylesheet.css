@@ -2,7 +2,6 @@
 @media only screen and (min-width: 0rem) {
     :root {
         --primary: #4E4B66;
-        --secondary: #000;
         --primaryLight: #001F3F;
         --secondary: #E4A95F;
         --secondaryLight: #FFBA43;
@@ -64,8 +63,8 @@
         margin: 0;
     }
 
-    p,
-    li {
+    p
+    {
         color: var(--bodyTextColor);
     }
 
@@ -145,14 +144,6 @@
 }
 
 
-/*-- -------------------------- -->
-<---          Main              -->
-<--- -------------------------- -*/
-
-#main {
-    margin-top: 5rem;
-    display: grid;
-}
 
 
 
@@ -259,13 +250,67 @@
             }
 }
 
+/*-- -------------------------- -->
+<---          Main              -->
+<--- -------------------------- -*/
 
-
+#main {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    
+}
 /*-- -------------------------- -->
 <---          Side bar          -->
 <--- -------------------------- -*/
 #side-bar {
-    background-color: dimgrey;
+    height: 80vh;
+    width: 40vh;
+    position: fixed;
+}
+
+#side-bar .cs-sidenav{
+    height: auto;
+}
+
+#side-bar .sidebar-ul{
+    height:  auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#side-bar .cs-li{
+    
+    margin: 1px 0;
+    border: 1px solid #fff;
+    background-color: var(--primary);
+    padding: 1rem 0;
+    color: var(--bodyTextColorWhite);
+}
+#side-bar .cs-li:hover{
+    background-color: var(--secondary);
+}
+
+#side-bar .sidebar-link {
+    text-decoration: none;
+    padding: 0.5em;
+    font-size: 1.5em;
+    color: var(--bodyTextColorWhite);
+}
+
+
+/*-- -------------------------- -->
+<---          Hero - 81         -->
+<--- -------------------------- -*/
+
+#hero-81{
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
