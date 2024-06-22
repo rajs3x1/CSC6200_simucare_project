@@ -1,44 +1,124 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>To-do CRUD</title>
-    <link rel="stylesheet" href="css/site.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramedic Application</title>
+    <link rel="stylesheet" href="./css/Stylesheet.css" />
+    <link rel="stylesheet" href="./css/Welcome.css" />
 </head>
+
 <body>
-    <h1>To-do CRUD</h1>
-    <h3>Add</h3>
-    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-        <input type="text" id="add-name" placeholder="New to-do">
-        <input type="submit" value="Add">
-    </form>
 
-    <div id="editForm">
-        <h3>Edit</h3>
-        <form action="javascript:void(0);" onsubmit="updateItem()">
-            <input type="hidden" id="edit-id">
-            <input type="checkbox" id="edit-isComplete">
-            <input type="text" id="edit-name">
-            <input type="submit" value="Save">
-            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
-        </form>
-    </div>
+    <!-- ============================================ -->
+    <!--                 Navigation                   -->
+    <!-- ============================================ -->
+    <header id="cs-navigation">
+        <div class="cs-container">
+            <!--Nav Logo-->
+            <a href="Welcome.html" class="cs-logo" aria-label="back to home">
+                <img src="./images/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
+            </a>
 
-    <p id="counter"></p>
+            <!--Navigation List-->
+            <nav class="cs-nav" role="navigation">
 
-    <table>
-        <tr>
-            <th>Is Complete?</th>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tbody id="todos"></tbody>
-    </table>
+                <button class="cs-toggle" aria-label="mobile menu toggle">
+                    <div class="cs-box" aria-hidden="true">
+                        <span class="cs-line cs-line1" aria-hidden="true"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                    </div>
+                </button>
+                <!--  wrapper div -->
+                <div class="cs-ul-wrapper">
+                    <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                        <li class="cs-li">
+                            <a href="Welcome.html" class="cs-li-link cs-active"> Welcome </a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Scene-Information.html" class="cs-li-link ">Scene-Information</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Patient-Details.html" class="cs-li-link ">Patient-Details</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Paramedic-Assessment.html" class="cs-li-link ">Paramedic-Assessment</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Management.html" class="cs-li-link ">Management</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Case-Narrative.html" class="cs-li-link ">Case-Narrative</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Handover.html" class="cs-li-link">Handover</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <script src="js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript">
-        getItems();
-    </script>
+    <main id="main">
+        <section id="side-bar">
+            <nav class="cs-nav" role="navigation">
+
+                <button class="cs-toggle" aria-label="mobile menu toggle">
+                    <div class="cs-box" aria-hidden="true">
+                        <span class="cs-line cs-line1" aria-hidden="true"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                    </div>
+                </button>
+                <!--  wrapper div -->
+                <div class="cs-ul-wrapper">
+                    <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                        <li class="cs-li">
+                            <a href="Welcome.html" class="cs-li-link cs-active"> Welcome </a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Scene-Information.html" class="cs-li-link ">Scene-Information</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Patient-Details.html" class="cs-li-link ">Patient-Details</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Paramedic-Assessment.html" class="cs-li-link ">Paramedic-Assessment</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Management.html" class="cs-li-link ">Management</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Case-Narrative.html" class="cs-li-link ">Case-Narrative</a>
+                        </li>
+                        <li class="cs-li">
+                            <a href="Handover.html" class="cs-li-link">Handover</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </section>
+
+
+        <!-- ============================================ -->
+        <!--                    Hero  content                    -->
+        <!-- ============================================ -->
+
+        <section id="hero-81">
+            <div class="cs-container">
+                <h1 class="cs-title">Login</h1>
+                <input />
+                <input />
+                <a href="Scene-Information.html" class="cs-button-solid">Login</a>
+            </div>
+        </section>
+
+
+    </main>
+    
+
+    <script defer src="./JS/Navbar.js"></script>
 </body>
 </html>
