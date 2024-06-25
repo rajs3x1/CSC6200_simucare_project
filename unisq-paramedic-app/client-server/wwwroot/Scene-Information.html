@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramedic Application</title>
+
+    <link rel="stylesheet" href="./css/Stylesheet.css" /> 
+
+      <link rel="stylesheet" href="./css/Scene-Information.css" />
+</head>
+  
+  <body>
+    
+      <!-- ============================================ -->
+      <!--                 Top Navigation                   -->
+      <!-- ============================================ -->
+      <header id="cs-navigation">
+          <div class="cs-container">
+              <!--Nav Logo-->
+              <a href="Welcome.html" class="cs-logo" aria-label="back to home">
+                  <img src="img/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
+              </a>
+
+              <!--Navigation List-->
+              <nav class="cs-nav" role="navigation">
+
+                  <button class="cs-toggle" aria-label="mobile menu toggle">
+                      <div class="cs-box" aria-hidden="true">
+                          <span class="cs-line cs-line1" aria-hidden="true"></span>
+                          <span class="cs-line cs-line2" aria-hidden="true"></span>
+                          <span class="cs-line cs-line3" aria-hidden="true"></span>
+                      </div>
+                  </button>
+                  <!--  wrapper div -->
+                  <div class="cs-ul-wrapper">
+                      <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+
+                          <li class="cs-li">
+                              <p>Student</p>
+                          </li>
+                          <li class="cs-li">
+                              <a href="index.html" class="cs-li-link">Log-out</a>
+                          </li>
+                      </ul>
+                  </div>
+              </nav>
+          </div>
+      </header>
+
+      <!-- ============================================ -->
+      <!--                   Hero 81                    -->
+      <!-- ============================================ -->
+      <main id="main">
+
+          <!-- ============================================ -->
+          <!--                    Hero                      -->
+          <!-- ============================================ -->
+          <section id="side-bar">
+              <nav class="cs-sidenav" role="side-navigation">
+                      <ul class="sidebar-ul" >
+                          <li class="cs-li ">
+                              <a href="Welcome.html" class="sidebar-link "> Welcome </a>
+                          </li>
+                          <li class="cs-li sidebar-active">
+                              <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
+                          </li>
+                          <li class="cs-li">
+                              <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
+                          </li>
+                          <li class="cs-li">
+                              <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
+                          </li>
+                          <li class="cs-li">
+                              <a href="Management.html" class="sidebar-link  ">Management</a>
+                          </li>
+                          <li class="cs-li">
+                              <a href="Case-Narrative.html" class="sidebar-link ">Case-Narrative</a>
+                          </li>
+                          <li class="cs-li">
+                              <a href="Handover.html" class="sidebar-link ">Handover</a>
+                          </li>
+                      </ul>
+                  
+              </nav>
+
+          </section>
+
+
+          <section id="hero-81">
+              <div id="scene-information" class="cs-container">
+                  <h1 class="cs-title">Scene-information</h1>
+                  <div class="form-container">
+                    <form>
+
+                        <!-- Primary Survey -->        
+                        <fieldset>
+                        <legend>Primary Survey</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="danger">Danger:</label>
+                                <select id="danger" name="danger">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="response">Response:</label>
+                                <select id="response" name="response">
+                                    <option value="alert">Alert</option>
+                                    <option value="verbal">Verbal</option>
+                                    <option value="pain">Pain</option>
+                                    <option value="unresponsive">Unresponsive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="airway">Airway:</label>
+                                <select id="airway" name="airway">
+                                    <option value="patent">Patent</option>
+                                    <option value="obstruction">Obstruction</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="breathing">Breathing:</label>
+                                <select id="breathing" name="breathing">
+                                    <option value="adequate">Adequate</option>
+                                    <option value="inadequate">Inadequate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="circulation">Circulation:</label>
+                                <select id="circulation" name="circulation">
+                                    <option value="adequate">Adequate</option>
+                                    <option value="inadequate">Inadequate</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Comments:</label>
+                            <textarea id="comments" name="comments" rows="4"></textarea>
+                        </div>
+                        </fieldset>
+                        
+                        <!-- Presenting Complaint (Symptom) -->
+                        <fieldset>
+                            <legend>Presenting Complaint (Symptom)</legend>
+                            <div class="form-group">
+                                <label for="complaint">Complaint:</label>
+                                <input type="text" id="complaint" name="complaint">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nature">Nature:</label>
+                                    <select id="nature" name="nature" onchange="toggleOtherNature(this)">
+                                        <option value="mild">Mild</option>
+                                        <option value="moderate">Moderate</option>
+                                        <option value="severe">Severe</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherNature" name="otherNature" style="display:none;" placeholder="Please specify">
+                                </div>
+                                <div class="form-group">
+                                    <label for="intensity">Intensity:</label>
+                                    <select id="intensity" name="intensity">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location:</label>
+                                    <select id="location" name="location" onchange="toggleOtherLocation(this)">
+                                        <option value="head">Head</option>
+                                        <option value="chest">Chest</option>
+                                        <option value="abdomen">Abdomen</option>
+                                        <option value="back">Back</option>
+                                        <option value="legs">Legs</option>
+                                        <option value="arms">Arms</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherLocation" name="otherLocation" style="display:none;" placeholder="Please specify">
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">Duration:</label>
+                                    <select id="duration" name="duration">
+                                        <option value="less than 1 hour">Less than 1 hour</option>
+                                        <option value="1-3 hours">1-3 hours</option>
+                                        <option value="3-6 hours">3-6 hours</option>
+                                        <option value="6-12 hours">6-12 hours</option>
+                                        <option value="more than 12 hours">More than 12 hours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="onset">Onset:</label>
+                                    <select id="onset" name="onset">
+                                        <option value="sudden">Sudden</option>
+                                        <option value="gradual">Gradual</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contributing">Contributing:</label>
+                                    <select id="contributing" name="contributing">
+                                        <option value="exercise">Exercise</option>
+                                        <option value="stress">Stress</option>
+                                        <option value="injury">Injury</option>
+                                        <option value="diet">Diet</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="aggravating">Aggravating:</label>
+                                    <select id="aggravating" name="aggravating">
+                                        <option value="movement">Movement</option>
+                                        <option value="pressure">Pressure</option>
+                                        <option value="temperature">Temperature</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alleviating">Alleviating:</label>
+                                    <select id="alleviating" name="alleviating">
+                                        <option value="rest">Rest</option>
+                                        <option value="medication">Medication</option>
+                                        <option value="therapy">Therapy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="frequency">Frequency:</label>
+                                    <select id="frequency" name="frequency">
+                                        <option value="once">Once</option>
+                                        <option value="intermittent">Intermittent</option>
+                                        <option value="constant">Constant</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="impact">Impact:</label>
+                                    <select id="impact" name="impact">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attribute">Attribute:</label>
+                                    <select id="attribute" name="attribute">
+                                        <option value="sharp">Sharp</option>
+                                        <option value="dull">Dull</option>
+                                        <option value="burning">Burning</option>
+                                        <option value="throbbing">Throbbing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="treatment">Treatment:</label>
+                                    <select id="treatment" name="treatment">
+                                        <option value="none">None</option>
+                                        <option value="medication">Medication</option>
+                                        <option value="therapy">Therapy</option>
+                                        <option value="surgery">Surgery</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                
+                        
+                    </form>   
+
+                  </div>
+                  <a href="Welcome.html" class="cs-button-solid">Previous</a>                
+                  <a href="Patient-Details.html" class="cs-button-solid">Next</a>
+              </div>
+          </section>
+
+
+      </main>
+
+      <!-- ============================================ -->
+      <!--                   Footer                     -->
+      <!-- ============================================ -->
+      <!-- <script defer src="./JS/Navbar.js"></script>-->
+  </body>
+    </html>
