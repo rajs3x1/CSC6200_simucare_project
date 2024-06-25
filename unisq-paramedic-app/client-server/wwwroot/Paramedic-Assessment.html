@@ -7,7 +7,11 @@
 
     <link rel="stylesheet" href="./css/Stylesheet.css" /> 
 
-      <link rel="stylesheet" href="./css/Welcome.css" />
+      <link rel="stylesheet" href="./css/Stylesheet.css" />
+      <link rel="stylesheet" href="./css/Paramedic-Assessment.css" />
+
+      <script src="./css/script.js"></script>
+
 </head>
   
   <body>
@@ -89,8 +93,348 @@
 
           <section id="hero-81">
               <div class="cs-container">
+                <div class="paramedic-assessment">
+                    <h2>Paramedic Assessment</h2>
+                    <form>           
+                        <!-- Primary Survey -->        
+                        <fieldset>
+                        <legend>Primary Survey</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="danger">Danger:</label>
+                                <select id="danger" name="danger">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="response">Response:</label>
+                                <select id="response" name="response">
+                                    <option value="alert">Alert</option>
+                                    <option value="verbal">Verbal</option>
+                                    <option value="pain">Pain</option>
+                                    <option value="unresponsive">Unresponsive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="airway">Airway:</label>
+                                <select id="airway" name="airway">
+                                    <option value="patent">Patent</option>
+                                    <option value="obstruction">Obstruction</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="breathing">Breathing:</label>
+                                <select id="breathing" name="breathing">
+                                    <option value="adequate">Adequate</option>
+                                    <option value="inadequate">Inadequate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="circulation">Circulation:</label>
+                                <select id="circulation" name="circulation">
+                                    <option value="adequate">Adequate</option>
+                                    <option value="inadequate">Inadequate</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Comments:</label>
+                            <textarea id="comments" name="comments" rows="4"></textarea>
+                        </div>
+                        </fieldset>
+                        
+                        <!-- Presenting Complaint (Symptom) -->
+                        <fieldset>
+                            <legend>Presenting Complaint (Symptom)</legend>
+                            <div class="form-group">
+                                <label for="complaint">Complaint:</label>
+                                <input type="text" id="complaint" name="complaint">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nature">Nature:</label>
+                                    <select id="nature" name="nature" onchange="toggleOtherNature(this)">
+                                        <option value="mild">Mild</option>
+                                        <option value="moderate">Moderate</option>
+                                        <option value="severe">Severe</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherNature" name="otherNature" style="display:none;" placeholder="Please specify">
+                                </div>
+                                <div class="form-group">
+                                    <label for="intensity">Intensity:</label>
+                                    <select id="intensity" name="intensity">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location:</label>
+                                    <select id="location" name="location" onchange="toggleOtherLocation(this)">
+                                        <option value="head">Head</option>
+                                        <option value="chest">Chest</option>
+                                        <option value="abdomen">Abdomen</option>
+                                        <option value="back">Back</option>
+                                        <option value="legs">Legs</option>
+                                        <option value="arms">Arms</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherLocation" name="otherLocation" style="display:none;" placeholder="Please specify">
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">Duration:</label>
+                                    <select id="duration" name="duration">
+                                        <option value="less than 1 hour">Less than 1 hour</option>
+                                        <option value="1-3 hours">1-3 hours</option>
+                                        <option value="3-6 hours">3-6 hours</option>
+                                        <option value="6-12 hours">6-12 hours</option>
+                                        <option value="more than 12 hours">More than 12 hours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="onset">Onset:</label>
+                                    <select id="onset" name="onset">
+                                        <option value="sudden">Sudden</option>
+                                        <option value="gradual">Gradual</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contributing">Contributing:</label>
+                                    <select id="contributing" name="contributing">
+                                        <option value="exercise">Exercise</option>
+                                        <option value="stress">Stress</option>
+                                        <option value="injury">Injury</option>
+                                        <option value="diet">Diet</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="aggravating">Aggravating:</label>
+                                    <select id="aggravating" name="aggravating">
+                                        <option value="movement">Movement</option>
+                                        <option value="pressure">Pressure</option>
+                                        <option value="temperature">Temperature</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alleviating">Alleviating:</label>
+                                    <select id="alleviating" name="alleviating">
+                                        <option value="rest">Rest</option>
+                                        <option value="medication">Medication</option>
+                                        <option value="therapy">Therapy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="frequency">Frequency:</label>
+                                    <select id="frequency" name="frequency">
+                                        <option value="once">Once</option>
+                                        <option value="intermittent">Intermittent</option>
+                                        <option value="constant">Constant</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="impact">Impact:</label>
+                                    <select id="impact" name="impact">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attribute">Attribute:</label>
+                                    <select id="attribute" name="attribute">
+                                        <option value="sharp">Sharp</option>
+                                        <option value="dull">Dull</option>
+                                        <option value="burning">Burning</option>
+                                        <option value="throbbing">Throbbing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="treatment">Treatment:</label>
+                                    <select id="treatment" name="treatment">
+                                        <option value="none">None</option>
+                                        <option value="medication">Medication</option>
+                                        <option value="therapy">Therapy</option>
+                                        <option value="surgery">Surgery</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
                 
-
+                        <!-- Patient History -->
+                        <fieldset>
+                            <legend>Patient History</legend>       
+                            <div class="form-row">
+                                <!-- Illnesses -->
+                                <div class="form-group">
+                                    <label for="illnesses">Illnesses:</label>
+                                    <select id="illnesses" name="illnesses" onchange="toggleOtherField(this,'otherIllness')">
+                                        <option value="diabetes">Diabetes</option>
+                                        <option value="hypertension">Hypertension</option>
+                                        <option value="asthma">Asthma</option>
+                                        <option value="heart_disease">Heart Disease</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherIllness" name="otherIllness" style="display:none;" placeholder="Please specify">
+                                </div>
+                                <!-- Vaccinations -->
+                                <div class="form-group">
+                                    <label for="vaccinations">Vaccinations:</label>
+                                    <select id="vaccinations" name="vaccinations" onchange="toggleOtherField(this,'otherVaccination')">
+                                        <option value="influenza">Influenza</option>
+                                        <option value="hepatitis_b">Hepatitis B</option>
+                                        <option value="tetanus">Tetanus</option>
+                                        <option value="covid_19">COVID-19</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherVaccination" name="otherVaccination" style="display:none;" placeholder="Please specify">
+                                </div>
+      
+                                <!-- Medications -->
+                                <div class="form-group">
+                                    <label for="medications">Medications:</label>
+                                    <select id="medications" name="medications" onchange="toggleOtherField(this,'otherMedication')">
+                                        <option value="insulin">Insulin</option>
+                                        <option value="metformin">Metformin</option>
+                                        <option value="lisinopril">Lisinopril</option>
+                                        <option value="atorvastatin">Atorvastatin</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" id="otherMedication" name="otherMedication" style="display:none;" placeholder="Please specify">
+                                </div>
+                                <!-- Operations -->
+                                <div class="form-group">
+                                    <label for="operations">Operations:</label>
+                                    <textarea id="operations" name="operations" rows="4"></textarea>
+                                </div>
+                            </div>
+                
+                            <div class="form-row">
+                                <!-- Hospital Visits -->
+                                <div class="form-group">
+                                    <label for="hospitalVisits">Hospital Visits:</label>
+                                    <textarea id="hospitalVisits" name="hospitalVisits" rows="4"></textarea>
+                                </div>  
+                                <!-- Allergies -->
+                                <div class="form-group">
+                                    <label for="allergies">Allergies:</label>
+                                    <textarea id="allergies" name="allergies" rows="4"></textarea>
+                                </div>
+                                <!-- Adverse Drug Reactions -->
+                                <div class="form-group">
+                                    <label for="adverseDrugReactions">Adverse Drug Reactions:</label>
+                                    <textarea id="adverseDrugReactions" name="adverseDrugReactions" rows="4"></textarea>
+                                </div>
+                        </div>  
+                        </fieldset>
+                
+                        <!-- Other Patient History -->
+                        <fieldset>
+                            <legend>Other Patient History</legend>
+                            <div id="otherPatientHistoryContainer"></div>
+                            <button type="button" class="history-section-button" onclick="addHistorySection()">Add Section</button>
+                        </fieldset>
+                        <!-- Vital Signs -->
+                        <fieldset>
+                            <legend>Vital Signs</legend>
+                            <!-- Time Assessed -->
+                            <!-- Cardiac Vital Signs -->
+                            <!-- <h3>Cardiac Vital Signs</h3> -->
+                                <div class="form-row">
+                                <div class="form-group">
+                                    <label for="timeAssessed">Time Assessed:</label>
+                                    <input type="datetime-local" id="timeAssessed" name="timeAssessed">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pulseRate">Pulse Rate:</label>
+                                    <input type="number" id="pulseRate" name="pulseRate" placeholder="Enter Pulse Rate (beats/min)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bloodPressure">Blood Pressure:</label>
+                                    <input type="text" id="bloodPressure" name="bloodPressure" placeholder="Enter Blood Pressure (mmHg)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="electrocardiogram">Electrocardiogram:</label>
+                                    <input type="text" id="electrocardiogram" name="electrocardiogram" placeholder="Enter Electrocardiogram">
+                                </div>
+                            </div>
+                            
+                            <!-- Respiratory Vital Signs -->
+                            <!-- <h3>Respiratory Vital Signs</h3> -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="respiratoryRate">Respiratory Rate:</label>
+                                    <input type="number" id="respiratoryRate" name="respiratoryRate" placeholder="Enter Respiratory Rate (breaths/min)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="respiratoryRhythm">Respiratory Rhythm:</label>
+                                    <input type="text" id="respiratoryRhythm" name="respiratoryRhythm" placeholder="Enter Respiratory Rhythm">
+                                </div>
+                                <div class="form-group">
+                                    <label for="respiratoryEffort">Respiratory Effort:</label>
+                                    <input type="text" id="respiratoryEffort" name="respiratoryEffort" placeholder="Enter Respiratory Effort">
+                                </div>
+                                <div class="form-group">
+                                    <label for="oxygenSaturation">Oxygen Saturation:</label>
+                                    <input type="number" id="oxygenSaturation" name="oxygenSaturation" placeholder="Enter Oxygen Saturation (%)">
+                                </div>
+                            </div>
+                
+                            <!-- Neurological Vital Signs -->
+                            <!-- <h3>Neurological Vital Signs</h3> -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="glasgowComaScale">Glasgow Coma Scale:</label>
+                                    <input type="text" id="glasgowComaScale" name="glasgowComaScale" placeholder="Enter Glasgow Coma Scale">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pupillaryResponse">Pupillary Response:</label>
+                                    <input type="text" id="pupillaryResponse" name="pupillaryResponse" placeholder="Enter Pupillary Response">
+                                </div>
+                            </div>
+                
+                            <!-- General Vital Signs -->
+                            <!-- <h3>General Vital Signs</h3> -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="temperature">Temperature:</label>
+                                    <input type="number" id="temperature" name="temperature" placeholder="Enter Temperature (°C)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bloodGlucoseLevel">Blood Glucose Level:</label>
+                                    <input type="number" id="bloodGlucoseLevel" name="bloodGlucoseLevel" placeholder="Enter Blood Glucose Level (mmol/L)">
+                                </div>
+                            </div>
+                
+                        </fieldset>
+                
+                
+                        <!-- Diagnosis -->
+                        <fieldset>
+                            <legend>Diagnosis</legend>
+                            <label for="primaryDiagnosis">Primary Diagnosis:</label>
+                            <select id="primaryDiagnosis" name="primaryDiagnosis">
+                                <!-- Add options here -->
+                                <option value="diagnosis1">Diagnosis 1</option>
+                                <option value="diagnosis2">Diagnosis 2</option>
+                            </select><br>
+                
+                            <label for="secondaryDiagnosis">Secondary Diagnosis:</label>
+                            <select id="secondaryDiagnosis" name="secondaryDiagnosis" multiple>
+                                <!-- Add options here -->
+                                <option value="diagnosis1">Diagnosis 1</option>
+                                <option value="diagnosis2">Diagnosis 2</option>
+                            </select>
+                        </fieldset>
+                
+                        <button type="submit" class="history-section-button">Submit</button>
+                    </form>
+                </div>
               </div>
           </section>
 
