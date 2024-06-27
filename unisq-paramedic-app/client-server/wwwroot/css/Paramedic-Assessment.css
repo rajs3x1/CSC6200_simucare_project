@@ -1,5 +1,5 @@
 
-
+/*
 
 .cs-container {
     max-width: 800px;
@@ -8,8 +8,10 @@
 
 .form-group {
     margin-bottom: 15px;
-    flex: 1; /* Allow items to grow evenly */
-    min-width: 100px; /* Adjust based on layout needs */
+    
+    flex: 1; 
+    
+    min-width: 100px; 
 }
 
 .form-group label {
@@ -19,7 +21,7 @@
 }
 .form-group select,
 
-/* Ensure inputs take full width within their container */
+
 .form-group input {
     width: 100%;
 }
@@ -57,7 +59,7 @@
 .history-section-select,
 .history-section-textarea,
 .history-section-button {
-    font-size: 16px; /* Adjust the font size*/
+    font-size: 16px; 
 }
 
 .form-row {
@@ -66,5 +68,5 @@
     gap: 10px;
     justify-content: space-between;
 }
-
+*/
 
