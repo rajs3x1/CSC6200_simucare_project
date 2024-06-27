@@ -267,28 +267,31 @@
     height: 80vh;
     width: 40vh;
     position: fixed;
+    top: 5rem; /* Adjust this if the fixed header height changes */
+    left: 0;
+    overflow-y: auto; /* Allow sidebar to scroll if content overflows */
 }
 
-#side-bar .cs-sidenav{
+#side-bar .cs-sidenav {
     height: auto;
 }
 
-#side-bar .sidebar-ul{
-    height:  auto;
+#side-bar .sidebar-ul {
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-#side-bar .cs-li{
-    
+#side-bar .cs-li {
     margin: 1px 0;
     border: 1px solid #fff;
     background-color: var(--primary);
     padding: 1rem 0;
     color: var(--bodyTextColorWhite);
 }
-#side-bar .cs-li:hover{
+
+#side-bar .cs-li:hover {
     background-color: var(--secondary);
 }
 
@@ -299,20 +302,18 @@
     color: var(--bodyTextColorWhite);
 }
 
-
 /*-- -------------------------- -->
 <---          Hero - 81         -->
 <--- -------------------------- -*/
 
-#hero-81{
+#hero-81 {
     margin-top: 3rem;
-    width: 100%;
+    margin-left: 40vh; /* Ensure this matches the sidebar width */
+    width: calc(100% - 40vh); /* Adjust the width of the content section */
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
 
 
 /*-- -------------------------- -->
