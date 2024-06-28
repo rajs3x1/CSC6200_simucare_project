@@ -302,6 +302,12 @@
     color: var(--bodyTextColorWhite);
 }
 
+#side-bar  .sidebar-active {
+    background-color: var(--secondary);
+  }
+  
+
+
 /*-- -------------------------- -->
 <---          Hero - 81         -->
 <--- -------------------------- -*/
