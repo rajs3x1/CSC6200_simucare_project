@@ -229,5 +229,18 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./JS/Navbar.js"></script>-->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the stored data from localStorage
+            const patientDetails = JSON.parse(localStorage.getItem('patientDetails'));
+
+            if (patientDetails) {
+                // Populate the form fields with the retrieved data
+                document.getElementById('name').value = patientDetails.firstName + ' ' + patientDetails.lastName;
+                document.getElementById('age').value = patientDetails.age;
+                document.getElementById('dob').value = patientDetails.dateOfBirth;
+            }
+        });
+    </script>
   </body>
     </html>

@@ -98,7 +98,11 @@
                         <select id="title" name="title">
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
                             <option value="Ms">Ms</option>
+                            <option value="Master">Master</option>
+                            <option value="Uncle">Uncle</option>
+                            <option value="Aunty">Aunty</option>
                         </select>
                       
                       <label for="firstName">First Name</label>
@@ -113,7 +117,7 @@
                       <input type="date" id="dateOfBirth" name="dateOfBirth">
                 
                       <label for="age">Age</label>
-                      <input type="number" id="age" name="age">
+                      <input type="number" id="age" name="age" readonly>
                       
                       <label for="gender">Gender</label>
                       <select id="gender" name="gender">
@@ -127,26 +131,14 @@
                       <label for="weight">Weight</label>
                       <input type="number" id="weight" name="weight">
                 
-                      <label for="email">Email Address:</label>
-                      <input type="email" id="email" name="email" required>
+                      <label for="address">Home Address:</label>
+                      <input type="address" id="address" name="address" required>
                       
                       <label for="phone">Phone Number:</label>
                       <input type="text" id="phone" name="phone" required><br><br>
-                
-                      <p>Whether the patient has historical disease? </p>
-                                <input type="radio" id="bar1" name="bar" value="Y">
-                                <label for="bar1">Yes</label><br>
-                                <input type="radio" id="bar2" name="bar" value="N">
-                                <label for="bar2">No</label><br>  
-                      <p>Time for appointment:</p>
-                                <input type="checkbox" id="Morning" name="Morning">
-                                <label for="Morning">Morning</label><br>
-                                <input type="checkbox" id="Afternoon" name="Afternoon">
-                                <label for="Afternoon">Afternoon</label><br>
-                      <br>
                         
                         <a href="Scene-Information.html" class="cs-button-solid">Previous</a>                
-                        <a href="Paramedic-Assessment.html" class="cs-button-solid">Next</a>
+                        <a href="Paramedic-Assessment.html" class="cs-button-solid" id="nextButton">Next</a>
                     </div> 
               </div>
           </section>
@@ -158,5 +150,54 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./JS/Navbar.js"></script>-->
+      <script>
+        document.getElementById('nextButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default action (navigation)
+
+            // Collect form data
+            const formData = {
+                title: document.getElementById('title').value,
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value,
+                weight: document.getElementById('weight').value,
+                address: document.getElementById('address').value,
+                phone: document.getElementById('phone').value,
+            };
+
+            // Store form data in localStorage
+            localStorage.setItem('patientDetails', JSON.stringify(formData));
+
+            // Redirect to the next page
+            window.location.href = 'Paramedic-Assessment.html';
+        });
+
+        document.getElementById('dateOfBirth').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            document.getElementById('age').value = age;
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the stored data from localStorage
+            const patientDetails = JSON.parse(localStorage.getItem('patientDetails'));
+
+            if (patientDetails) {
+                // Populate the form fields with the retrieved data
+                document.getElementById('title').value = patientDetails.title;
+                document.getElementById('firstName').value = patientDetails.firstName;
+                document.getElementById('lastName').value = patientDetails.lastName;
+                document.getElementById('dateOfBirth').value = patientDetails.dateOfBirth;
+                document.getElementById('age').value = patientDetails.age;
+                document.getElementById('gender').value = patientDetails.gender;
+                document.getElementById('weight').value = patientDetails.weight;
+                document.getElementById('address').value = patientDetails.address;
+                document.getElementById('phone').value = patientDetails.phone;
+            }
+        });
+    </script>
   </body>
     </html>
