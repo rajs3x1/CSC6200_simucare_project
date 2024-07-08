@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./css/Stylesheet.css" /> 
       <link rel="stylesheet" href="./css/Paramedic-Assessment.css" />
 
-      <script src="./JS/Paramedic-Assessment.js"></script>
 
 </head>
   
@@ -150,7 +149,7 @@
                         </fieldset>
                         
                         <!-- Presenting Complaint (Symptom) -->
-                        <fieldset id="presentingComplaintContainer">
+                        <fieldset>
                             <div class="presenting-complaint">
                                 <legend>Presenting Complaint (Symptom)</legend>
                                 <div class="form-group">
@@ -213,70 +212,81 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <button type="button" onclick="addPresentingComplaint()">Add Another Presenting Complaint</button>
+
+                        <!-- Other Presenting Complaint -->
+                        <fieldset>
+                            <legend>Other Presenting Complaint</legend>
+                            <div id="presentingComplaintContainer"></div>
+                            <button type="button" onclick="addPresentingComplaint()">Add Another Presenting Complaint</button>
+                        </fieldset>
 
                         <!-- Patient History -->
                         <fieldset>
-                            <legend>Patient History</legend>       
-                            <div class="form-row">
-                                <!-- Illnesses -->
-                                <div class="form-group">
-                                    <label for="illnesses">Illnesses:</label>
-                                    <input type="text" id="illnesses" name="illnesses">
-                                </div>
-
-                                <!-- Vaccinations -->
-                                <div class="form-group">
-                                    <label for="vaccinations">Vaccinations:</label>
-                                    <div class="radio-group">
-                                        <input type="radio" id="vaccinations_current" name="vaccinations_status" value="current">
-                                        <label for="vaccinations_current">Current</label></br>
-                                        <input type="radio" id="vaccinations_not_current" name="vaccinations_status" value="not_current">
-                                        <label for="vaccinations_not_current">Not_Current</label>
+                            <div class="patient-history">
+                                <legend>Patient History</legend>       
+                                <div class="form-row">
+                                    <!-- Illnesses -->
+                                    <div class="form-group">
+                                        <label for="illnesses">Illnesses:</label>
+                                        <textarea id="illnesses" name="illnesses" rows="2"></textarea>
                                     </div>
-                                    <input type="text" id="vaccinations" name="vaccinations" placeholder="Tetanus vaccination due">
+
+                                    <!-- Vaccinations -->
+                                    <div class="form-group">
+                                        <label for="vaccinations">Vaccinations:</label>
+                                        <div class="radio-group">
+                                            <input type="radio" id="vaccinations_current" name="vaccinations_status" value="current">
+                                            <label for="vaccinations_current">Current</label></br>
+                                            <input type="radio" id="vaccinations_not_current" name="vaccinations_status" value="not_current">
+                                            <label for="vaccinations_not_current">Not_Current</label>
+                                        </div>
+                                        <input type="text" id="vaccinations" name="vaccinations" placeholder="Tetanus vaccination due">
+                                    </div>
                                 </div>
-    
-                                <!-- Medications -->
-                                <div class="form-group">
-                                    <label for="medications">Medications:</label>
-                                    <select type="text" id="medications" name="medications">
+                                <div class="form-row">
+                                    <!-- Medications -->
+                                    <div class="form-group">
+                                        <label for="medications">Medications:</label>
+                                        <textarea id="medications" name="medications" rows="4"></textarea>
+                                    </div>
+                                </br>
+                                </br>
+                                    <!-- Operations -->
+                                    <div class="form-group">
+                                        <label for="operations">Operations:</label>
+                                        <textarea id="operations" name="operations" rows="4"></textarea>
+                                    </div>
                                 </div>
-                                <!-- Operations -->
-                                <div class="form-group">
-                                    <label for="operations">Operations:</label>
-                                    <textarea id="operations" name="operations" rows="4"></textarea>
-                                </div>
-                            </div>
-                
-                            <div class="form-row">
-                                <!-- Hospital Visits -->
-                                <div class="form-group">
-                                    <label for="hospitalVisits">Hospital Visits:</label>
-                                    <textarea id="hospitalVisits" name="hospitalVisits" rows="4"></textarea>
+                    
+                                <div class="form-row">
+                                    <!-- Hospital Visits -->
+                                    <div class="form-group">
+                                        <label for="hospitalVisits">Hospital Visits:</label>
+                                        <textarea id="hospitalVisits" name="hospitalVisits" rows="4"></textarea>
+                                    </div>  
+                                    <!-- Allergies -->
+                                    <div class="form-group">
+                                        <label for="allergies">Allergies:</label>
+                                        <textarea id="allergies" name="allergies" rows="4"></textarea>
+                                    </div>
+                                    <!-- Adverse Drug Reactions -->
+                                    <div class="form-group">
+                                        <label for="adverseDrugReactions">Adverse Drug Reactions:</label>
+                                        <textarea id="adverseDrugReactions" name="adverseDrugReactions" rows="4"></textarea>
+                                    </div>
                                 </div>  
-                                <!-- Allergies -->
-                                <div class="form-group">
-                                    <label for="allergies">Allergies:</label>
-                                    <textarea id="allergies" name="allergies" rows="4"></textarea>
-                                </div>
-                                <!-- Adverse Drug Reactions -->
-                                <div class="form-group">
-                                    <label for="adverseDrugReactions">Adverse Drug Reactions:</label>
-                                    <textarea id="adverseDrugReactions" name="adverseDrugReactions" rows="4"></textarea>
-                                </div>
-                        </div>  
+                            </div>
                         </fieldset>
                 
                         <!-- Other Patient History -->
                         <fieldset>
                             <legend>Other Patient History</legend>
-                            <div id="otherPatientHistoryContainer"></div>
-                            <button type="button" class="history-section-button" onclick="addHistorySection()">Add Section</button>
+                            <div id="patientHistoryContainer"></div>
+                            <button type="button" class="history-section-button" onclick="addPatientHistory()">Add Section</button>
                         </fieldset>
 
                         <!-- Vital Signs -->
-                        <fieldset id="vitalSignsContainer">
+                        <fieldset >
                             <div class="vital-signs">
                                 <legend>Vital Signs</legend>
                                 <!-- Time Assessed -->
@@ -382,7 +392,12 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <button type="button" onclick="addVitalSigns()">Add Another Set of Vital Signs</button>
+                        <!-- Other Vital Signs -->
+                        <fieldset>
+                            <legend>Other Vital Signs</legend>
+                            <div id="vitalSignsContainer"></div>
+                            <button type="button" onclick="addVitalSigns()">Add Another Set of Vital Signs</button>
+                        </fieldset>
           
                         <!-- Diagnosis -->
                         <fieldset>
@@ -399,7 +414,7 @@
                         </fieldset>
                     </form>
                     <a href="Patient-Details.html" class="cs-button-solid">Previous</a>                
-                    <a href="Management.html" class="cs-button-solid">Next</a>
+                    <a href="Management.html" class="cs-button-solid" id="nextButtonParamedicAssessment">Next</a>
                 </div>
               </div>
           </section>
@@ -411,6 +426,9 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./JS/Navbar.js"></script>-->
+    
+    <script src="./JS/Paramedic-Assessment.js"></script>
+
 
   </body>
 </html>
