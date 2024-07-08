@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'Patient-Details.html';
     });
 
-    // Optional: Save the form data when the form is submitted
+    // Save the form data when the form is submitted
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent the form from submitting normally
 

@@ -291,8 +291,9 @@
     color: var(--bodyTextColorWhite);
 }
 
-#side-bar .cs-li:hover {
+#side-bar :hover {
     background-color: var(--secondary);
+    cursor: pointer;
 }
 
 #side-bar .sidebar-link {
