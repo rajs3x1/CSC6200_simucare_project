@@ -58,14 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'Patient-Details.html';
     });
 
-    // Save the form data when the form is submitted
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        // Save the form data
-        saveFormData();
-
-        // Optionally, navigate to the next page
-        window.location.href = 'Patient-Details.html';
-    });
 });
