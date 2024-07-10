@@ -16,37 +16,38 @@
       <!--                 Top Navigation                   -->
       <!-- ============================================ -->
       <header id="cs-navigation">
-          <div class="cs-container">
-              <!--Nav Logo-->
-              <a href="Index.html" class="cs-logo" aria-label="back to home">
-                  <img src="img/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
-              </a>
+        <div class="cs-container">
+            <!--Nav Logo-->
+            <a href="Index.html" class="cs-logo" aria-label="back to home">
+                <img src="img/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
+            </a>
 
-              <!--Navigation List-->
-              <nav class="cs-nav" role="navigation">
+            <!--Navigation List-->
+            <nav class="cs-nav" role="navigation">
 
-                  <button class="cs-toggle" aria-label="mobile menu toggle">
-                      <div class="cs-box" aria-hidden="true">
-                          <span class="cs-line cs-line1" aria-hidden="true"></span>
-                          <span class="cs-line cs-line2" aria-hidden="true"></span>
-                          <span class="cs-line cs-line3" aria-hidden="true"></span>
-                      </div>
-                  </button>
-                  <!--  wrapper div -->
-                  <div class="cs-ul-wrapper">
-                      <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                <button class="cs-toggle" aria-label="mobile menu toggle">
+                    <div class="cs-box" aria-hidden="true">
+                        <span class="cs-line cs-line1" aria-hidden="true"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                    </div>
+                </button>
+                <!--  wrapper div -->
+                <div class="cs-ul-wrapper">
+                    <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
 
-                          <li class="cs-li">
-                              <p>Student</p>
-                          </li>
-                          <li class="cs-li">
-                              <a href="index.html" class="cs-li-link">Log-out</a>
-                          </li>
-                      </ul>
-                  </div>
-              </nav>
-          </div>
-      </header>
+                        <li class="cs-li">
+                            <p  id="nav-student">Student</p>
+                        </li>
+                        <li class="cs-li">
+                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
 
       <!-- ============================================ -->
       <!--                   Hero 81                    -->
@@ -100,21 +101,22 @@
                             <legend>Identity:</legend>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input type="name" id="name" name="name">
+                                    <label for="first-name">Patient's First Name:</label>
+                                    <input type="name" id="first-name" name="first-name" readonly >
                                 </div>
                                 <div class="form-group">
+                                  <label for="last-name">Patient's Last Name:</label>
+                                  <input type="name" id="last-name" name="last-name"readonly>
+                              </div>
+                                <div class="form-group">
                                     <label for="age">Age:</label>
-                                    <input type="text" id="age" name="age">
+                                    <input type="text" id="age" name="age"readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="dob">Date of birth:</label>
-                                    <input type="text" id="dob" name="dob">
+                                    <input type="text" id="dob" name="dob"readonly>
                                 </div>
-                                <div class="form-group">
-                                    <label for="route-administration">Route of Administration:</label>
-                                    <input type="text" id="route-administration" name="route-administration">
-                                </div>
+                                
                             </div>
                         </fieldset>
                         <!-- Mechanism/Medical Complaint -->
@@ -122,15 +124,29 @@
                             <legend></legend>
                             <div class="form-row">
                                 <div class="form-group">
-                                  <label for="complaints">Complaints:</label>
+                                  <label for="complaints">Mechanism/Complaints:</label>
                                   <textarea
                                     id="complaints"
                                     name="complaints"
-                                    rows="2"
+                                    rows="2" readonly
                                   ></textarea>
                                 </div>
                               </div>
                         </fieldset>
+                        <!-- Injuries/Information About Complaint -->
+                        <fieldset id="information-field">
+                          <legend></legend>
+                          <div class="form-row">
+                              <div class="form-group">
+                                <label for="information-complaint">Injuries/Information About Complaint:</label>
+                                <textarea
+                                  id="information-complaint"
+                                  name="information-complaint"
+                                  rows="15" readonly
+                                ></textarea>
+                              </div>
+                            </div>
+                      </fieldset>
                         <!-- Signs -->
                         <fieldset id="signs-field">
                             <legend></legend>
@@ -140,81 +156,41 @@
                                   <textarea
                                     id="signs"
                                     name="signs"
-                                    rows="2"
+                                    rows="8"readonly
                                   ></textarea>
                                 </div>
                               </div>
                         </fieldset>
-                        <!-- Treatment and Trendsns -->
-                        <fieldset id="trend-field">
+                        
+                        <!-- Allergies and Adverse Drug Reactions -->
+                        <fieldset id="allergies-field">
                             <legend></legend>
                             <div class="form-row">
                                 <div class="form-group">
-                                  <label for="treatment-trends">Treatment and Trends:</label>
+                                  <label for="allergies">Allergies :</label>
                                   <textarea
-                                    id="treatment-trends"
-                                    name="treatment-trends"
-                                    rows="2"
+                                    id="allergies"
+                                    name="allergies"
+                                    rows="2"readonly
                                   ></textarea>
                                 </div>
                               </div>
                         </fieldset>
                         <!-- Allergies and Adverse Drug Reactions -->
-                        <fieldset id="medical-complaint">
-                            <legend></legend>
-                            <div class="form-row">
-                                <div class="form-group">
-                                  <label for="allergies-drug">Allergies and Adverse Drug Reactions:</label>
-                                  <textarea
-                                    id="allergies-drug"
-                                    name="allergies-drug"
-                                    rows="2"
-                                  ></textarea>
-                                </div>
+                        <fieldset id="Drug-field">
+                          <legend></legend>
+                          <div class="form-row">
+                              <div class="form-group">
+                                <label for="drug-reactions">Adverse Drug Reactions:</label>
+                                <textarea
+                                  id="drug-reactions"
+                                  name="drug-reactions"
+                                  rows="2"readonly
+                                ></textarea>
                               </div>
-                        </fieldset>
-                         <!-- medical -->
-                        <fieldset id="medical-field">
-                            <legend></legend>
-                            <div class="form-row">
-                                <div class="form-group">
-                                  <label for="medical">Medications:</label>
-                                  <textarea
-                                    id="medical"
-                                    name="medical"
-                                    rows="2"
-                                  ></textarea>
-                                </div>
-                              </div>
-                        </fieldset>
-                        <!-- Background Information  -->
-                        <fieldset id="background-field">
-                            <legend></legend>
-                            <div class="form-row">
-                                <div class="form-group">
-                                  <label for="background">Background:</label>
-                                  <textarea
-                                    id="background"
-                                    name="background"
-                                    rows="2"
-                                  ></textarea>
-                                </div>
-                              </div>
-                        </fieldset>
-                        <!-- Other  -->
-                        <fieldset id="other-field">
-                            <legend></legend>
-                            <div class="form-row">
-                                <div class="form-group">
-                                  <label for="other">Other:</label>
-                                  <textarea
-                                    id="other"
-                                    name="other"
-                                    rows="2"
-                                  ></textarea>
-                                </div>
-                              </div>
-                        </fieldset>
+                            </div>
+                      </fieldset>
+                         
 
                     </form>
                 </div>  
@@ -230,18 +206,8 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./JS/Navbar.js"></script>-->
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Retrieve the stored data from localStorage
-            const patientDetails = JSON.parse(localStorage.getItem('patientDetails'));
-
-            if (patientDetails) {
-                // Populate the form fields with the retrieved data
-                document.getElementById('name').value = patientDetails.firstName + ' ' + patientDetails.lastName;
-                document.getElementById('age').value = patientDetails.age;
-                document.getElementById('dob').value = patientDetails.dateOfBirth;
-            }
-        });
+      <script src ="JS/Handover.js">
+        
     </script>
   </body>
     </html>

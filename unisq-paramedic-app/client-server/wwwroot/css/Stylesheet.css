@@ -248,6 +248,20 @@
                 left: 0;
                 transition: width .3s;
             }
+
+            #cs-navigation .reset-button{
+                font-size: larger;
+                font-weight: bold;
+                border: var(--secondary) solid;
+                border-radius: 15%;
+                background-color: var(--bodyTextColorWhite);
+                
+            }
+            #cs-navigation #nav-student{
+                font-weight: bold;
+                font-size: larger;
+            }
+
 }
 
 /*-- -------------------------- -->
@@ -267,7 +281,7 @@
     height: 80vh;
     width: 40vh;
     position: fixed;
-    top: 5rem; /* Adjust this if the fixed header height changes */
+    top: 6.5rem; /* Adjust this if the fixed header height changes */
     left: 0;
     overflow-y: auto; /* Allow sidebar to scroll if content overflows */
 }
