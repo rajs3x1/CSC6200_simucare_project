@@ -1,75 +1,4 @@
 
-/*
-
-.cs-container {
-    max-width: 800px;
-    margin-left: 300px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    
-    flex: 1; 
-    
-    min-width: 100px; 
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-.form-group select,
-
-
-.form-group input {
-    width: 100%;
-}
-.form-group textarea {
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fafafa;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.btn-submit {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-.btn-submit:hover {
-    background-color: #0056b3;
-}
-
-.history-section-label,
-.history-section-select,
-.history-section-textarea,
-.history-section-button {
-    font-size: 16px; 
-}
-
-.form-row {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    justify-content: space-between;
-}
-*/
-
 .radio-group {
     display: flex;
     align-items: center;
@@ -83,3 +12,24 @@
     margin-right: 15px; /* Adjust as needed */
 }
 
+button{
+    width: 20%;
+    height: 3.5rem;
+    font-size: larger;
+    font-weight: bold;
+    color: var(--secondary);
+    border: var(--bodyTextColor) solid;
+    border-radius: 0.5rem;
+  }
+  button:hover{
+    background-color: var(--secondary);
+    color: var(--primaryLight);
+  }
+  
+legend {
+    margin: 0;
+    color: rgb(71, 21, 165);
+    font-weight: bold;
+
+}
+  
