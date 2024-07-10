@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const studentData = JSON.parse(savedData);
 
             document.getElementById('student-id').value = studentData.studentName;
-            document.getElementById('student-name').value = studentData.studentName;
+            document.getElementById('student-name').value = studentData.studentId;
         }
     };
 
