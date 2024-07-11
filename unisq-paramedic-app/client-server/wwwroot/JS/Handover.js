@@ -20,32 +20,131 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if(savedParaAssess){
             const paraAssess = JSON.parse(savedParaAssess);
+            
             //complaints
-            document.getElementById('complaints').value = paraAssess.complaint;
-            //info complaints
-            document.getElementById('information-complaint').value = `Nature: ${paraAssess.nature}, 
-Intensity: ${paraAssess.intensity}, 
-Location: ${paraAssess.location}, 
-Duration: ${paraAssess.duration}, 
-Onset: ${paraAssess.onset}, 
-Contributing: ${paraAssess.contributing}, 
-Aggravating: ${paraAssess.aggravating}, 
-Alleviating: ${paraAssess.alleviating}, 
-Frequency: ${paraAssess.frequency}, 
-Impact: ${paraAssess.impact}, 
-Attribute: ${paraAssess.attribute}, 
-Treatment: ${paraAssess.treatment}`;
+            let complaints ="";
+            for(let i = 0 ; i < paraAssess.complaints.length;i++){
+                if(i == 0){
+                    complaints = `${paraAssess.complaints[i].complaint}`;
+                }else{
+                    complaints = `${complaints}, ${paraAssess.complaints[i].complaint}`;
+                }
+                
+            }
+            document.getElementById('complaints').value = complaints
+            
+            // Info complaints
+
+let natureComplain = "";
+let intensityComplain = "";
+let locationComplain = "";
+let durationComplain = "";
+let onsetComplain = "";
+let contributingComplain = "";
+let aggravatingComplain = "";
+let alleviatingComplain = "";
+let frequencyComplain = "";
+let impactComplain = "";
+let attributeComplain = "";
+let treatmentComplain = "";
+
+for (let i = 0; i < paraAssess.complaints.length; i++) {
+    let complaint = paraAssess.complaints[i];
+    if (i === 0) {
+        natureComplain = `${complaint.nature}`;
+        intensityComplain = `${complaint.intensity}`;
+        locationComplain = `${complaint.location}`;
+        durationComplain = `${complaint.duration}`;
+        onsetComplain = `${complaint.onset}`;
+        contributingComplain = `${complaint.contributing}`;
+        aggravatingComplain = `${complaint.aggravating}`;
+        alleviatingComplain = `${complaint.alleviating}`;
+        frequencyComplain = `${complaint.frequency}`;
+        impactComplain = `${complaint.impact}`;
+        attributeComplain = `${complaint.attribute}`;
+        treatmentComplain = `${complaint.treatment}`;
+    } else {
+        natureComplain +=  `, ${complaint.nature}`;
+        intensityComplain += `, ${complaint.intensity}`;
+        locationComplain += `, ${complaint.location}`;
+        durationComplain += `, ${complaint.duration}`;
+        onsetComplain += `, ${complaint.onset}`;
+        contributingComplain += `, ${complaint.contributing}`;
+        aggravatingComplain += `, ${complaint.aggravating}`;
+        alleviatingComplain += `, ${complaint.alleviating}`;
+        frequencyComplain += `, ${complaint.frequency}`;
+        impactComplain += `, ${complaint.impact}`;
+        attributeComplain += `, ${complaint.attribute}`;
+        treatmentComplain += `, ${complaint.treatment}`;
+    }
+}
+
+document.getElementById('information-complaint').value = `Nature: ${natureComplain} 
+Intensity: ${intensityComplain}
+Location: ${locationComplain}
+Duration: ${durationComplain}
+Onset: ${onsetComplain}
+Contributing: ${contributingComplain} 
+Aggravating: ${aggravatingComplain}
+Alleviating: ${alleviatingComplain}
+Frequency: ${frequencyComplain}
+Impact: ${impactComplain}
+Attribute: ${attributeComplain}
+Treatment: ${treatmentComplain}`;
+
+
 
             //Allergies
-            document.getElementById('allergies').value = paraAssess.allergies;
+            let allergy = "";
+            for(let i = 0 ; i < paraAssess.histories.length ; i ++ ){
+                
+                if(i == 0){
+                    allergy = `${paraAssess.histories[i].allergies}`;
+                }else{
+                    allergy += `, ${paraAssess.histories[i].allergies}`; 
+                }
+            }
+            document.getElementById('allergies').value = allergy;
+
             //Adverse Drug Reactions
-            document.getElementById('drug-reactions').value = paraAssess.adverseDrugReactions;
+            let adverseDrug = "";
+            for(let i = 0; i< paraAssess.histories.length; i++){
+               
+                if(i == 0){
+                    
+                    adverseDrug = `${paraAssess.histories[i].adverseDrugReactions}`;
+                }else{
+                    adverseDrug += `, ${paraAssess.histories[i].adverseDrugReactions}`; 
+                }
+            }
+         
+            document.getElementById('drug-reactions').value = adverseDrug;
+
             //signs
-            document.getElementById('signs').value = `Pulse Rate: ${paraAssess.pulseRate}, 
-Blood Pressure: ${paraAssess.bloodPressure}, 
-Pupillary Response: ${paraAssess.pupillaryResponse}, 
-GCS Total: ${paraAssess.gcsTotal}, 
-Temperature: ${paraAssess.temperature}`;
+            let signsPulseRate = "";
+            let signsBloodPressure = "";
+            let signsPupillaryResponse = "";
+            let signsGcsTotal = "";
+            let signsTemperature = "";
+            for(let i = 0 ; i < paraAssess.vitalSignsList.length ; i++){
+                
+                if(i == 0){
+                    signsPulseRate = `${paraAssess.vitalSignsList[i].pulseRate}`;
+                    signsBloodPressure = `${paraAssess.vitalSignsList[i].bloodPressure}`;
+                    signsPupillaryResponse = `${paraAssess.vitalSignsList[i].pupillaryResponse}`;
+                    signsTemperature = `${paraAssess.vitalSignsList[i].temperature}`;
+                }else{
+                    signsPulseRate += `${paraAssess.vitalSignsList[i].pulseRate}`;
+                    signsBloodPressure += `${paraAssess.vitalSignsList[i].bloodPressure}`;
+                    signsPupillaryResponse += `${paraAssess.vitalSigns[i].pupillaryResponse}`;
+                    signsTemperature += `${paraAssess.vitalSignsList[i].temperature}`;
+                }
+            }
+            
+            document.getElementById('signs').value = `Pulse Rate: ${signsPulseRate}, 
+Blood Pressure: ${signsBloodPressure}, 
+Pupillary Response: ${signsPupillaryResponse},
+Temperature: ${signsTemperature}`;
         }
     };
 
