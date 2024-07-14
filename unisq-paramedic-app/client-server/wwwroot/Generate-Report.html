@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="./css/Stylesheet.css" /> 
 
-      <link rel="stylesheet" href="./css/Welcome.css" />
+      <link rel="stylesheet" href="./css/Scene-Information.css" />
 </head>
   
   <body>
@@ -61,7 +61,7 @@
           <section id="side-bar">
             <nav class="cs-sidenav" role="side-navigation">
                     <ul class="sidebar-ul" >
-                        <li class="cs-li sidebar-active" onclick="window.location.href='Index.html'">
+                        <li class="cs-li" onclick="window.location.href='Index.html'">
                             <a href="Index.html" class="sidebar-link "> Welcome </a>
                         </li>
                         <li class="cs-li" onclick="window.location.href='scene-information.html'">
@@ -79,10 +79,10 @@
                         <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
                             <a href="Case-Narrative.html" class="sidebar-link ">Case-Narrative</a>
                         </li>
-                        <li class="cs-li " onclick="window.location.href='Handover.html'">
+                        <li class="cs-li" onclick="window.location.href='Handover.html'">
                             <a href="Handover.html" class="sidebar-link ">Handover</a>
                         </li>
-                        <li class="cs-li " onclick="window.location.href='Generate-Report.html'">
+                        <li class="cs-li sidebar-active" onclick="window.location.href='Generate-Report.html'">
                           <a href="Generate-Report.html" class="sidebar-link ">Generate-Report</a>
                       </li>
                     </ul>
@@ -93,36 +93,17 @@
 
 
           <section id="hero-81">
-              <div class="cs-container">
-                  <h1 class="cs-topper">Welcome to the Paramendic Assessment Tool </h1>
-                  <h1 id="logedin-studentId" class="cs-title">Student Credentials </h1>
-                  <div class="form-container">
-                    <form>
-                      <!-- Case Narative -->
-                      <fieldset>
-                        <div class="form-row">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="student-id">Student ID:</label>
-                                    <input type="text" id="student-id" name="student-id">
-                                </div>
-                                <div class="form-group">
-                                    <label for="student-name">Student Name:</label>
-                                    <input type="text" id="student-name" name="student-name">
-                                </div>
-                            </div>
-                        </div>
-                        
-                      </fieldset>
-                  </div>
-                  <a id="next-button" class="cs-button-solid">Next</a>
+              <div id="scene-information" class="cs-container">
+                  <h1 class="cs-title">Press button to generate report</h1>
+                  
+                  <a href="Index.html" class="cs-button-solid">Generate</a>                
+                 
               </div>
           </section>
 
-   
+
       </main>
-      <script src="./JS/Index.js"></script>
-      <script src="./JS/navbar.js"></script>
+
       <!-- ============================================ -->
       <!--                   Footer                     -->
       <!-- ============================================ -->

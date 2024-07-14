@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramedic Application</title>
+
+    <link rel="stylesheet" href="./css/Stylesheet.css" /> 
+
+      <link rel="stylesheet" href="./css/Welcome.css" />
+</head>
+  
+  <body>
+    
+      <!-- ============================================ -->
+      <!--                 Top Navigation                   -->
+      <!-- ============================================ -->
+      <header id="cs-navigation">
+        <div class="cs-container">
+            <!--Nav Logo-->
+            <a href="Index.html" class="cs-logo" aria-label="back to home">
+                <img src="img/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
+            </a>
+
+            <!--Navigation List-->
+            <nav class="cs-nav" role="navigation">
+
+                <button class="cs-toggle" aria-label="mobile menu toggle">
+                    <div class="cs-box" aria-hidden="true">
+                        <span class="cs-line cs-line1" aria-hidden="true"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                    </div>
+                </button>
+                <!--  wrapper div -->
+                <div class="cs-ul-wrapper">
+                    <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+
+                        <li class="cs-li">
+                            <p  id="nav-student">Student</p>
+                        </li>
+                        <li class="cs-li">
+                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+      <!-- ============================================ -->
+      <!--                   Hero 81                    -->
+      <!-- ============================================ -->
+      <main id="main">
+
+          <!-- ============================================ -->
+          <!--                    Hero                      -->
+          <!-- ============================================ -->
+          <section id="side-bar">
+            <nav class="cs-sidenav" role="side-navigation">
+                    <ul class="sidebar-ul" >
+                        <li class="cs-li" onclick="window.location.href='Index.html'">
+                            <a href="Index.html" class="sidebar-link "> Welcome </a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='scene-information.html'">
+                            <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='Patient-Details.html'">
+                            <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='paramedic-assessment.html'">
+                            <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='management.html'">
+                            <a href="Management.html" class="sidebar-link  ">Management</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
+                            <a href="Case-Narrative.html" class="sidebar-link ">Case-Narrative</a>
+                        </li>
+                        <li class="cs-li sidebar-active" onclick="window.location.href='Handover.html'">
+                            <a href="Handover.html" class="sidebar-link ">Handover</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Generate-Report.html'">
+                          <a href="Generate-Report.html" class="sidebar-link ">Generate-Report</a>
+                      </li>
+                    </ul>
+                
+            </nav>
+
+        </section>
+
+
+          <section id="hero-81">
+              <div class="cs-container">
+                  <h1 class="cs-topper">Handover:</h1>
+                  <div class="form-container">
+                    <form>
+                        <!-- Identity -->
+                        <fieldset id="identity-field">
+                            <legend>Identity:</legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">Patient's First Name:</label>
+                                    <input type="name" id="first-name" name="first-name" readonly >
+                                </div>
+                                <div class="form-group">
+                                  <label for="last-name">Patient's Last Name:</label>
+                                  <input type="name" id="last-name" name="last-name"readonly>
+                              </div>
+                                <div class="form-group">
+                                    <label for="age">Age:</label>
+                                    <input type="text" id="age" name="age"readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date of birth:</label>
+                                    <input type="text" id="dob" name="dob"readonly>
+                                </div>
+                                
+                            </div>
+                        </fieldset>
+                        <!-- Mechanism/Medical Complaint -->
+                        <fieldset id="complaint-field">
+                            <legend></legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                  <label for="complaints">Mechanism/Complaints:</label>
+                                  <textarea
+                                    id="complaints"
+                                    name="complaints"
+                                    rows="2" readonly
+                                  ></textarea>
+                                </div>
+                              </div>
+                        </fieldset>
+                        <!-- Injuries/Information About Complaint -->
+                        <fieldset id="information-field">
+                          <legend></legend>
+                          <div class="form-row">
+                              <div class="form-group">
+                                <label for="information-complaint">Injuries/Information About Complaint:</label>
+                                <textarea
+                                  id="information-complaint"
+                                  name="information-complaint"
+                                  rows="15" readonly
+                                ></textarea>
+                              </div>
+                            </div>
+                      </fieldset>
+                        <!-- Signs -->
+                        <fieldset id="signs-field">
+                            <legend></legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                  <label for="signs">Signs:</label>
+                                  <textarea
+                                    id="signs"
+                                    name="signs"
+                                    rows="8"readonly
+                                  ></textarea>
+                                </div>
+                              </div>
+                        </fieldset>
+                        
+                        <!-- Allergies and Adverse Drug Reactions -->
+                        <fieldset id="allergies-field">
+                            <legend></legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                  <label for="allergies">Allergies :</label>
+                                  <textarea
+                                    id="allergies"
+                                    name="allergies"
+                                    rows="2"readonly
+                                  ></textarea>
+                                </div>
+                              </div>
+                        </fieldset>
+                        <!-- Allergies and Adverse Drug Reactions -->
+                        <fieldset id="Drug-field">
+                          <legend></legend>
+                          <div class="form-row">
+                              <div class="form-group">
+                                <label for="drug-reactions">Adverse Drug Reactions:</label>
+                                <textarea
+                                  id="drug-reactions"
+                                  name="drug-reactions"
+                                  rows="2"readonly
+                                ></textarea>
+                              </div>
+                            </div>
+                      </fieldset>
+                         
+
+                    </form>
+                </div>  
+                  <a href="Case-Narrative.html" class="cs-button-solid">Previous</a>                
+                <a href="Generate-Report.html" class="cs-button-solid">Next</a>
+              </div>
+          </section>
+
+
+      </main>
+
+      <!-- ============================================ -->
+      <!--                   Footer                     -->
+      <!-- ============================================ -->
+      <!-- <script defer src="./js/Navbar.js"></script>-->
+      <script src ="JS/Handover.js">
+        
+    </script>
+  </body>
+    </html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramedic Application</title>
+
+    <link rel="stylesheet" href="./css/Stylesheet.css" /> 
+      <link rel="stylesheet" href="./css/Paramedic-Assessment.css" />
+
+
+</head>
+  
+  <body>
+    
+      <!-- ============================================ -->
+      <!--                 Top Navigation                   -->
+      <!-- ============================================ -->
+      <header id="cs-navigation">
+        <div class="cs-container">
+            <!--Nav Logo-->
+            <a href="Index.html" class="cs-logo" aria-label="back to home">
+                <img src="img/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
+            </a>
+
+            <!--Navigation List-->
+            <nav class="cs-nav" role="navigation">
+
+                <button class="cs-toggle" aria-label="mobile menu toggle">
+                    <div class="cs-box" aria-hidden="true">
+                        <span class="cs-line cs-line1" aria-hidden="true"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                    </div>
+                </button>
+                <!--  wrapper div -->
+                <div class="cs-ul-wrapper">
+                    <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+
+                        <li class="cs-li">
+                            <p  id="nav-student">Student</p>
+                        </li>
+                        <li class="cs-li">
+                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+      <!-- ============================================ -->
+      <!--                   Hero 81                    -->
+      <!-- ============================================ -->
+      <main id="main">
+
+          <!-- ============================================ -->
+          <!--                    Hero                      -->
+          <!-- ============================================ -->
+          <section id="side-bar">
+            <nav class="cs-sidenav" role="side-navigation">
+                    <ul class="sidebar-ul" >
+                        <li class="cs-li " onclick="window.location.href='Index.html'">
+                            <a href="Index.html" class="sidebar-link "> Welcome </a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='scene-information.html'">
+                            <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='Patient-Details.html'">
+                            <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
+                        </li>
+                        <li class="cs-li sidebar-active" onclick="window.location.href='paramedic-assessment.html'">
+                            <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='management.html'">
+                            <a href="Management.html" class="sidebar-link  ">Management</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
+                            <a href="Case-Narrative.html" class="sidebar-link ">Case-Narrative</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Handover.html'">
+                            <a href="Handover.html" class="sidebar-link ">Handover</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Generate-Report.html'">
+                          <a href="Generate-Report.html" class="sidebar-link ">Generate-Report</a>
+                      </li>
+                    </ul>
+                
+            </nav>
+
+        </section>
+
+
+          <section id="hero-81">
+              <div class="cs-container">
+               
+                    <h1 class="cs-topper">Paramedic Assesment</h1>
+                     <div class="paramedic-assessment" class="form-container">
+                    <form>           
+                        <!-- Primary Survey -->        
+                        <fieldset>
+                        <legend>Primary Survey</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="danger">Danger:</label>
+                                <select id="danger" name="danger">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="response">Response:</label>
+                                <select id="response" name="response">
+                                    <option value="alert">Alert</option>
+                                    <option value="verbal">Verbal</option>
+                                    <option value="pain">Pain</option>
+                                    <option value="unresponsive">Unresponsive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="airway">Airway:</label>
+                                <select id="airway" name="airway">
+                                    <option value="patent">Patent</option>
+                                    <option value="obstruction">Obstruction</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="breathing">Breathing:</label>
+                                <select id="breathing" name="breathing">
+                                    <option value="adequate">Adequate</option>
+                                    <option value="inadequate">Inadequate</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="circulation">Circulation:</label>
+                                <select id="circulation" name="circulation">
+                                    <option value="adequate">Adequate</option>
+                                    <option value="inadequate">Inadequate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="comments">Comments:</label>
+                                <textarea id="comments" name="comments" rows="4"></textarea>
+                            </div>
+                        </div>
+                        </fieldset>
+                        
+                        <!-- Presenting Complaint (Symptom) -->
+                        <fieldset class="presenting-complaint">
+                            <legend>Presenting Complaint (Symptom)</legend>
+                            <div class="form-group">
+                                <label for="complaint">Complaint:</label>
+                                <input type="text" id="complaint" name="complaint">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nature">Nature:</label>
+                                    <input type="text" id="nature" name="nature" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="intensity">Intensity:</label>
+                                    <input type ="text" id="intensity" name="intensity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location:</label>
+                                    <input type="text" id="location" name="location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">Duration:</label>
+                                    <input type="text" id="duration" name="duration">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="onset">Onset:</label>
+                                    <input type="text" id="onset" name="onset">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contributing">Contributing:</label>
+                                    <input type="text" id="contributing" name="contributing">
+                                </div>
+                                <div class="form-group">
+                                    <label for="aggravating">Aggravating:</label>
+                                    <input type="text" id="aggravating" name="aggravating">
+                                </div>
+                                <div class="form-group">
+                                    <label for="alleviating">Alleviating:</label>
+                                    <input type="text" id="alleviating" name="alleviating">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="frequency">Frequency:</label>
+                                    <input type="text" id="frequency" name="frequency">
+                                </div>
+                                <div class="form-group">
+                                    <label for="impact">Impact:</label>
+                                    <input type="text" id="impact" name="impact">
+                                </div>
+                                <div class="form-group">
+                                    <label for="attribute">Attribute:</label>
+                                    <input type="text" id="attribute" name="attribute">
+                                </div>
+                                <div class="form-group">
+                                    <label for="treatment">Treatment:</label>
+                                    <input type="text" id="treatment" name="treatment">
+                                </div>
+                            </div>
+                            <button type="button" class="delete-button" onclick="deletePresentingComplaint(this)">Delete</button>
+                        </fieldset>
+
+                        <!-- Other Presenting Complaint -->
+                        <fieldset>
+                            <div id="presentingComplaintContainer"></div>
+                            <button type="button" onclick="addPresentingComplaint()">Add Presenting Complaint</button>
+                        </fieldset>
+
+                        <!-- Patient History -->
+                        <fieldset class="patient-history">
+                            <legend>Patient History</legend>       
+                            <div class="form-row">
+                                <!-- Illnesses -->
+                                <div class="form-group">
+                                    <label for="illnesses">Illnesses:</label>
+                                    <textarea id="illnesses" name="illnesses" rows="2"></textarea>
+                                </div>
+
+                                <!-- Vaccinations -->
+                                <div class="form-group">
+                                    <label for="vaccinations">Vaccinations:</label>
+                                    <div class="radio-group">
+                                        <input type="radio" id="vaccinations_current" name="vaccinations_status" value="current">
+                                        <label for="vaccinations_current">Current</label></br>
+                                        <input type="radio" id="vaccinations_not_current" name="vaccinations_status" value="not_current">
+                                        <label for="vaccinations_not_current">Not_Current</label>
+                                    </div>
+                                    <input type="text" id="vaccinations" name="vaccinations" placeholder="Tetanus vaccination due">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <!-- Medications -->
+                                <div class="form-group">
+                                    <label for="medications">Medications:</label>
+                                    <textarea id="medications" name="medications" rows="4"></textarea>
+                                </div>
+                            </br>
+                            </br>
+                                <!-- Operations -->
+                                <div class="form-group">
+                                    <label for="operations">Operations:</label>
+                                    <textarea id="operations" name="operations" rows="4"></textarea>
+                                </div>
+                            </div>
+                
+                            <div class="form-row">
+                                <!-- Hospital Visits -->
+                                <div class="form-group">
+                                    <label for="hospitalVisits">Hospital Visits:</label>
+                                    <textarea id="hospitalVisits" name="hospitalVisits" rows="4"></textarea>
+                                </div>  
+                                <!-- Allergies -->
+                                <div class="form-group">
+                                    <label for="allergies">Allergies:</label>
+                                    <textarea id="allergies" name="allergies" rows="4"></textarea>
+                                </div>
+                                <!-- Adverse Drug Reactions -->
+                                <div class="form-group">
+                                    <label for="adverseDrugReactions">Adverse Drug Reactions:</label>
+                                    <textarea id="adverseDrugReactions" name="adverseDrugReactions" rows="4"></textarea>
+                                </div>
+                            </div>  
+                            <button type="button" class="delete-button" onclick="deletePatientHistory(this)">Delete</button>
+                        </fieldset>
+                
+                        <!-- Other Patient History -->
+                        <fieldset>
+                            <div id="patientHistoryContainer"></div>
+                            <button type="button" class="history-section-button" onclick="addPatientHistory()">Add Patient History</button>
+                        </fieldset>
+
+                        <!-- Vital Signs -->
+                        <fieldset class="vital-signs">
+                            <legend>Vital Signs</legend>
+                            <!-- Time Assessed -->
+                            <!-- Cardiac Vital Signs -->
+                            <!-- <h3>Cardiac Vital Signs</h3> -->
+                                <div class="form-row">
+                                <div class="form-group">
+                                    <label for="timeAssessed">Time Assessed:</label>
+                                    <input type="datetime-local" id="timeAssessed" name="timeAssessed">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pulseRate">Pulse Rate:</label>
+                                    <input type="number" id="pulseRate" name="pulseRate" placeholder="Enter Pulse Rate (beats/min)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bloodPressure">Blood Pressure:</label>
+                                    <input type="text" id="bloodPressure" name="bloodPressure" placeholder="Enter Blood Pressure (mmHg)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="electrocardiogram">Electrocardiogram:</label>
+                                    <input type="text" id="electrocardiogram" name="electrocardiogram" placeholder="Enter Electrocardiogram">
+                                </div>
+                            </div>
+                            
+                            <!-- Respiratory Vital Signs -->
+                            <!-- <h3>Respiratory Vital Signs</h3> -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="respiratoryRate">Respiratory Rate:</label>
+                                    <input type="number" id="respiratoryRate" name="respiratoryRate" placeholder="Enter Respiratory Rate (breaths/min)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="respiratoryRhythm">Respiratory Rhythm:</label>
+                                    <input type="text" id="respiratoryRhythm" name="respiratoryRhythm" placeholder="Enter Respiratory Rhythm">
+                                </div>
+                                <div class="form-group">
+                                    <label for="respiratoryEffort">Respiratory Effort:</label>
+                                    <input type="text" id="respiratoryEffort" name="respiratoryEffort" placeholder="Enter Respiratory Effort">
+                                </div>
+                                <div class="form-group">
+                                    <label for="oxygenSaturation">Oxygen Saturation:</label>
+                                    <input type="number" id="oxygenSaturation" name="oxygenSaturation" placeholder="Enter Oxygen Saturation (%)">
+                                </div>
+                            </div>
+                
+                            <!-- Neurological Vital Signs -->
+                            <!-- <h3>Neurological Vital Signs</h3> -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="glasgowComaScale">Glasgow Coma Scale:</label>
+                                    <div class="form-group">
+                                        <label for="eyeOpening">Eye Opening:</label>
+                                        <select id="eyeOpening" name="eyeOpening" onchange="calculateGCS()">
+                                            <option value="4">4</option>
+                                            <option value="3">3</option>
+                                            <option value="2">2</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="verbalResponse">Verbal Response:</label>
+                                        <select id="verbalResponse" name="verbalResponse" onchange="calculateGCS()">
+                                            <option value="5">5</option>
+                                            <option value="4">4</option>
+                                            <option value="3">3</option>
+                                            <option value="2">2</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="motorResponse">Motor Response:</label>
+                                        <select id="motorResponse" name="motorResponse" onchange="calculateGCS()">
+                                            <option value="6">6</option>
+                                            <option value="5">5</option>
+                                            <option value="4">4</option>
+                                            <option value="3">3</option>
+                                            <option value="2">2</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gcsTotal">GCS Total:</label>
+                                        <input type="text" id="gcsTotal" name="gcsTotal" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pupillaryResponse">Pupillary Response:</label>
+                                    <input type="text" id="pupillaryResponse" name="pupillaryResponse" placeholder="Enter Pupillary Response">
+                                </div>
+                            </div>
+                
+                            <!-- General Vital Signs -->
+                            <!-- <h3>General Vital Signs</h3> -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="temperature">Temperature:</label>
+                                    <input type="number" id="temperature" name="temperature" placeholder="Enter Temperature (°C)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bloodGlucoseLevel">Blood Glucose Level:</label>
+                                    <input type="number" id="bloodGlucoseLevel" name="bloodGlucoseLevel" placeholder="Enter Blood Glucose Level (mmol/L)">
+                                </div>
+                            </div>
+                            <button type="button" class="delete-button" onclick="deleteVitalSigns(this)">Delete</button>
+                        </fieldset>
+                        <!-- Other Vital Signs -->
+                        <fieldset>
+                            <div id="vitalSignsContainer"></div>
+                            <button type="button" onclick="addVitalSigns()">Add Set of Vital Signs</button>
+                        </fieldset>
+          
+                        <!-- Diagnosis -->
+                        <fieldset>
+                            <legend>Diagnosis</legend>
+                            <div class="form-group">
+                                <label for="primaryDiagnosis">Primary Diagnosis:</label>
+                                <textarea id="primaryDiagnosis" name="primaryDiagnosis" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="secondaryDiagnosis">Secondary Diagnosis:</label>
+                                <textarea id="secondaryDiagnosis" name="secondaryDiagnosis" rows="3"></textarea>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <a href="Patient-Details.html" class="cs-button-solid">Previous</a>                
+                    <a href="Management.html" class="cs-button-solid" id="nextButtonParamedicAssessment">Next</a>
+                </div>
+              </div>
+          </section>
+
+
+      </main>
+
+      <!-- ============================================ -->
+      <!--                   Footer                     -->
+      <!-- ============================================ -->
+      <!-- <script defer src="./js/Navbar.js"></script>-->
+    
+    <script src="./js/Paramedic-Assessment.js"></script>
+    <script src="./js/navbar.js"></script>
+
+
+  </body>
+</html>
