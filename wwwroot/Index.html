@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramedic Application</title>
+
+    <link rel="stylesheet" href="./css/Stylesheet.css" /> 
+
+      <link rel="stylesheet" href="./css/Welcome.css" />
+</head>
+  
+  <body>
+    
+      <!-- ============================================ -->
+      <!--                 Top Navigation                   -->
+      <!-- ============================================ -->
+      <header id="cs-navigation">
+        <div class="cs-container">
+            <!--Nav Logo-->
+            <a href="Index.html" class="cs-logo" aria-label="back to home">
+                <img src="img/logo-USQ.png" alt="logo" width="210" height="500" aria-hidden="true" decoding="async">
+            </a>
+
+            <!--Navigation List-->
+            <nav class="cs-nav" role="navigation">
+
+                <button class="cs-toggle" aria-label="mobile menu toggle">
+                    <div class="cs-box" aria-hidden="true">
+                        <span class="cs-line cs-line1" aria-hidden="true"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                    </div>
+                </button>
+                <!--  wrapper div -->
+                <div class="cs-ul-wrapper">
+                    <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+
+                        <li class="cs-li">
+                            <p  id="nav-student">Student</p>
+                        </li>
+                        <li class="cs-li">
+                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+      <!-- ============================================ -->
+      <!--                   Hero 81                    -->
+      <!-- ============================================ -->
+      <main id="main">
+
+          <!-- ============================================ -->
+          <!--                    Hero                      -->
+          <!-- ============================================ -->
+          <section id="side-bar">
+            <nav class="cs-sidenav" role="side-navigation">
+                    <ul class="sidebar-ul" >
+                        <li class="cs-li sidebar-active" onclick="window.location.href='Index.html'">
+                            <a href="Index.html" class="sidebar-link "> Welcome </a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='scene-information.html'">
+                            <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='Patient-Details.html'">
+                            <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='paramedic-assessment.html'">
+                            <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
+                        </li>
+                        <li class="cs-li" onclick="window.location.href='management.html'">
+                            <a href="Management.html" class="sidebar-link  ">Management</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
+                            <a href="Case-Narrative.html" class="sidebar-link ">Case-Narrative</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Handover.html'">
+                            <a href="Handover.html" class="sidebar-link ">Handover</a>
+                        </li>
+                        <li class="cs-li " onclick="window.location.href='Generate-Report.html'">
+                          <a href="Generate-Report.html" class="sidebar-link ">Generate-Report</a>
+                      </li>
+                    </ul>
+                
+            </nav>
+
+        </section>
+
+
+          <section id="hero-81">
+              <div class="cs-container">
+                  <h1 class="cs-topper">Welcome to the Paramendic Assessment Tool </h1>
+                  <h1 id="logedin-studentId" class="cs-title">Student Credentials </h1>
+                  <div class="form-container">
+                    <form>
+                      <!-- Case Narative -->
+                      <fieldset>
+                        <div class="form-row">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="student-id">Student ID:</label>
+                                    <input type="text" id="student-id" name="student-id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="student-name">Student Name:</label>
+                                    <input type="text" id="student-name" name="student-name">
+                                </div>
+                            </div>
+                        </div>
+                        
+                      </fieldset>
+                  </div>
+                  <a id="next-button" class="cs-button-solid">Next</a>
+              </div>
+          </section>
+
+   
+      </main>
+      <script src="./js/Index.js"></script>
+      <script src="./js/navbar.js"></script>
+      <!-- ============================================ -->
+      <!--                   Footer                     -->
+      <!-- ============================================ -->
+      <!-- <script defer src="./js/Navbar.js"></script>-->
+  </body>
+    </html>
