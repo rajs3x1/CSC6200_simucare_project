@@ -170,56 +170,7 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./js/Navbar.js"></script>-->
-      <script>
-        document.getElementById('nextButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default action (navigation)
-
-            // Collect form data
-            const formData = {
-                title: document.getElementById('title').value,
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                dateOfBirth: document.getElementById('dateOfBirth').value,
-                age: document.getElementById('age').value,
-                gender: document.getElementById('gender').value,
-                weight: document.getElementById('weight').value,
-                address: document.getElementById('address').value,
-                phone: document.getElementById('phone').value,
-            };
-
-            // Store form data in localStorage
-            localStorage.setItem('patientDetails', JSON.stringify(formData));
-
-            // Redirect to the next page
-            window.location.href = 'Paramedic-Assessment.html';
-        });
-
-        document.getElementById('dateOfBirth').addEventListener('change', function() {
-            const dob = new Date(this.value);
-            const today = new Date();
-            let age = today.getFullYear() - dob.getFullYear();
-            document.getElementById('age').value = age;
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Retrieve the stored data from localStorage
-            const patientDetails = JSON.parse(localStorage.getItem('patientDetails'));
-
-            if (patientDetails) {
-                // Populate the form fields with the retrieved data
-                document.getElementById('title').value = patientDetails.title;
-                document.getElementById('firstName').value = patientDetails.firstName;
-                document.getElementById('lastName').value = patientDetails.lastName;
-                document.getElementById('dateOfBirth').value = patientDetails.dateOfBirth;
-                document.getElementById('age').value = patientDetails.age;
-                document.getElementById('gender').value = patientDetails.gender;
-                document.getElementById('weight').value = patientDetails.weight;
-                document.getElementById('address').value = patientDetails.address;
-                document.getElementById('phone').value = patientDetails.phone;
-            }
-        });
-    </script>
-
+    <script src="./js/Patient-Details.js"></script>
     <script src="./js/navbar.js"></script>
   </body>
     </html>

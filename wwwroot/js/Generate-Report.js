@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const indexPageUrl = 'Index.html';
         const scenePageUrl = 'Scene-Information.html';
+        const patientDetailsPageUrl = 'Patient-Details.html';
 
         // Retrieve user input from localStorage
         const savedSceneData = localStorage.getItem('sceneInformation');
@@ -20,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const savedIndexData = localStorage.getItem('studentData');
         const indexUserData = savedIndexData ? JSON.parse(savedIndexData) : {};
+
+        const savedPatientData = localStorage.getItem('patientDetails');
+        const patientUserData = savedPatientData ? JSON.parse(savedPatientData) : {};
 
         // Function to fetch and render page content
         const fetchAndRenderPage = (url, userData) => {
@@ -150,6 +154,84 @@ document.addEventListener('DOMContentLoaded', function() {
                                     reject(error);
                                 });
                             }, 100); // Adjust timeout if necessary
+
+                        } else if (url === patientDetailsPageUrl) { // Handle Patient-Details page
+                            const pageContent = tempDiv.querySelector('#patient-details');
+                            if (!pageContent) {
+                                console.error('Error: Element with id "patient-details" not found.');
+                                reject('Element not found');
+                                return;
+                            }
+
+                            // Set field values for Patient Details page
+                            const titleField = pageContent.querySelector('#title');
+                            if (titleField) {
+                                titleField.value = userData.title || '';
+                            }
+
+                            const firstNameField = pageContent.querySelector('#firstName');
+                            if (firstNameField) {
+                                firstNameField.value = userData.firstName || '';
+                            }
+
+                            const lastNameField = pageContent.querySelector('#lastName');
+                            if (lastNameField) {
+                                lastNameField.value = userData.lastName || '';
+                            }
+
+                            const dobField = pageContent.querySelector('#dateOfBirth');
+                            if (dobField) {
+                                dobField.value = userData.dateOfBirth || '';
+                            }
+
+                            const ageField = pageContent.querySelector('#age');
+                            if (ageField) {
+                                ageField.value = userData.age || '';
+                            }
+
+                            const genderField = pageContent.querySelector('#gender');
+                            if (genderField) {
+                                genderField.value = userData.gender || '';
+                            }
+
+                            const weightField = pageContent.querySelector('#weight');
+                            if (weightField) {
+                                weightField.value = userData.weight || '';
+                            }
+
+                            const addressField = pageContent.querySelector('#address');
+                            if (addressField) {
+                                addressField.value = userData.address || '';
+                            }
+
+                            const phoneField = pageContent.querySelector('#phone');
+                            if (phoneField) {
+                                phoneField.value = userData.phone || '';
+                            }
+
+                            // Append tempDiv to body to ensure styles are applied
+                            document.body.appendChild(tempDiv);
+
+                            // Delay to ensure styles are applied
+                            setTimeout(() => {
+                                html2canvas(pageContent, {
+                                    scale: 2,
+                                    scrollX: -window.scrollX,
+                                    scrollY: -window.scrollY,
+                                    windowWidth: document.documentElement.offsetWidth,
+                                    windowHeight: document.documentElement.offsetHeight,
+                                }).then(canvas => {
+                                    document.body.removeChild(tempDiv);
+                                    resolve({
+                                        canvas: canvas,
+                                        width: canvas.width,
+                                        height: canvas.height
+                                    });
+                                }).catch(error => {
+                                    console.error('Error generating PDF:', error);
+                                    reject(error);
+                                });
+                            }, 100); // Adjust timeout if necessary
                         }
                     })
                     .catch(error => {
@@ -159,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         };
 
-        // Fetch and render both pages sequentially
+        // Fetch and render all three pages sequentially
         let pdfWidth;
 
         fetchAndRenderPage(indexPageUrl, indexUserData)
@@ -185,6 +267,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add Scene Page content to PDF
                 pdf.addPage();
                 pdf.addImage(imgDataScene, 'PNG', 20, 20, pdfWidth - 40, pdfHeightScene - 20);
+
+                // Add borders
+                pdf.setDrawColor(255);
+                pdf.setLineWidth(1);
+                pdf.rect(10, 10, pdf.internal.pageSize.getWidth() - 20, pdf.internal.pageSize.getHeight() - 20, 'S');
+
+                return fetchAndRenderPage(patientDetailsPageUrl, patientUserData);
+            })
+            .then(patientData => {
+                const imgDataPatient = patientData.canvas.toDataURL('image/png');
+                const pdfHeightPatient = (patientData.height * pdfWidth) / patientData.width;
+
+                // Add Patient Details Page content to PDF
+                pdf.addPage();
+                pdf.addImage(imgDataPatient, 'PNG', 20, 20, pdfWidth - 40, pdfHeightPatient - 20);
 
                 // Add borders
                 pdf.setDrawColor(255);

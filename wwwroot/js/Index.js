@@ -29,8 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load form data when the page loads
     loadFormData();
 
-    // Event listener for Next button to save form data
-    if (nextButton) {
-        nextButton.addEventListener('click', saveFormData);
-    }
+    nextButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default link behavior
+
+        // Save the form data
+        saveFormData();
+
+        // Navigate to the next page
+        window.location.href = 'Scene-Information.html';
+    });
 });
