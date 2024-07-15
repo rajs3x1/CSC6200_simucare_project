@@ -196,17 +196,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
                             const weightField = pageContent.querySelector('#weight');
                             if (weightField) {
-                                weightField.value = userData.weight || '';
+                                weightField.textContent = userData.weight || '';
                             }
 
                             const addressField = pageContent.querySelector('#address');
                             if (addressField) {
-                                addressField.value = userData.address || '';
+                                addressField.textContent = userData.address || '';
                             }
 
                             const phoneField = pageContent.querySelector('#phone');
                             if (phoneField) {
-                                phoneField.value = userData.phone || '';
+                                phoneField.textContent = userData.phone || '';
                             }
 
                             // Append tempDiv to body to ensure styles are applied

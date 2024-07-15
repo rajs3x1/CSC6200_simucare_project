@@ -5,9 +5,11 @@
         const verbal = parseInt(document.getElementById('verbalResponse').value);
         const motor = parseInt(document.getElementById('motorResponse').value);
         const total = eye + verbal + motor;
+
         document.getElementById('gcsTotal').value = total;
+        localStorage.setItem('gcsTotal', total.toString());
     }
-    
+
 // Adding Presenting Complaint
 
     function addPresentingComplaint() {
@@ -184,6 +186,7 @@ document.getElementById('nextButtonParamedicAssessment').addEventListener('click
             temperature: vitalSignsDiv.querySelector('[name="temperature"]').value,
             bloodGlucoseLevel: vitalSignsDiv.querySelector('[name="bloodGlucoseLevel"]').value
         };
+        
         vitalSignsList.push(vitalSignsData);
     });
 
