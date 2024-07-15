@@ -151,12 +151,13 @@ Temperature: ${signsTemperature}`;
     // Load form data when the page loads
     loadFormData();
 
-    nextButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent the default link behavior
+    if (nextButton) {
+        nextButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default link behavior
 
 
-        // Navigate to the next page
-        window.location.href = 'Patient-Details.html';
-    });
-
+            // Navigate to the next page
+            window.location.href = 'Patient-Details.html';
+        });
+    }
 });

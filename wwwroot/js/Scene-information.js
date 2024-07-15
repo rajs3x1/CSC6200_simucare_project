@@ -1,7 +1,25 @@
 function updateDateTime() {
     const dateTimeElement = document.getElementById('date-time');
     const now = new Date();
-    const formattedDateTime = now.toLocaleString();
+
+    // Month names array
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    // Get components
+    const day = String(now.getDate()).padStart(2, '0');
+    const monthIndex = now.getMonth();
+    const year = now.getFullYear();
+
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM'; // Adjusted to correctly determine AM or PM
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    const formattedDateTime = `${day} ${monthNames[monthIndex]} ${year} ${hours}:${minutes}:${seconds} ${ampm}`;
+
     dateTimeElement.textContent = formattedDateTime;
 }
 
