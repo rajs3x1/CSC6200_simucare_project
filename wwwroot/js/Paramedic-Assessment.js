@@ -1,13 +1,25 @@
 
-
-    function calculateGCS() {
-        const eye = parseInt(document.getElementById('eyeOpening').value);
-        const verbal = parseInt(document.getElementById('verbalResponse').value);
-        const motor = parseInt(document.getElementById('motorResponse').value);
+// Calculate GCS value
+    function calculateGCS(container) {
+        const eye = parseInt(container.querySelector('[name="eyeOpening"]').value);
+        const verbal = parseInt(container.querySelector('[name="verbalResponse"]').value);
+        const motor = parseInt(container.querySelector('[name="motorResponse"]').value);
         const total = eye + verbal + motor;
 
-        document.getElementById('gcsTotal').value = total;
-        localStorage.setItem('gcsTotal', total.toString());
+        container.querySelector('[name="gcsTotal"]').value = total;
+    }
+
+    // Function to attach event listeners for GCS calculation
+    function attachGCSListeners(container) {
+        container.querySelector('[name="eyeOpening"]').addEventListener('change', function() {
+            calculateGCS(container);
+        });
+        container.querySelector('[name="verbalResponse"]').addEventListener('change', function() {
+            calculateGCS(container);
+        });
+        container.querySelector('[name="motorResponse"]').addEventListener('change', function() {
+            calculateGCS(container);
+        });
     }
 
 // Adding Presenting Complaint
@@ -89,6 +101,19 @@ function addVitalSigns() {
     newVitalSigns.querySelectorAll('input').forEach(input => input.value = '');
     newVitalSigns.querySelectorAll('textarea').forEach(textarea => textarea.value = '');
     newVitalSigns.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+
+    // Add event listeners to GCS inputs for immediate recalculation
+    newVitalSigns.querySelector('[name="eyeOpening"]').addEventListener('change', function() {
+        calculateGCS(newVitalSigns);
+    });
+    newVitalSigns.querySelector('[name="verbalResponse"]').addEventListener('change', function() {
+        calculateGCS(newVitalSigns);
+    });
+    newVitalSigns.querySelector('[name="motorResponse"]').addEventListener('change', function() {
+        calculateGCS(newVitalSigns);
+    });
+
+    calculateGCS(newVitalSigns);
 
     // Remove existing delete button if any
     const existingDeleteButton = newVitalSigns.querySelector('.delete-button');
@@ -182,6 +207,7 @@ document.getElementById('nextButtonParamedicAssessment').addEventListener('click
                 verbalResponse: vitalSignsDiv.querySelector('[name="verbalResponse"]').value,
                 motorResponse: vitalSignsDiv.querySelector('[name="motorResponse"]').value
             },
+            gcsTotal: vitalSignsDiv.querySelector('[name="gcsTotal"]').value,
             pupillaryResponse: vitalSignsDiv.querySelector('[name="pupillaryResponse"]').value,
             temperature: vitalSignsDiv.querySelector('[name="temperature"]').value,
             bloodGlucoseLevel: vitalSignsDiv.querySelector('[name="bloodGlucoseLevel"]').value
@@ -207,6 +233,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Retrieve the stored data from localStorage
     const paramedicAssessment = JSON.parse(localStorage.getItem('paramedicAssessment'));
 
+    initializePage(); // Initialize the page on load
+
+    function initializePage() {
+        // Attach event listeners for GCS calculations on existing sections
+        document.querySelectorAll('.vital-signs').forEach(vitalSignsDiv => {
+            attachGCSListeners(vitalSignsDiv); // Attach listeners
+            calculateGCS(vitalSignsDiv); // Calculate GCS totals initially
+        });
+    }
+    
     if (paramedicAssessment) {
 
         // Populate Primary Survey
@@ -273,8 +309,18 @@ document.addEventListener('DOMContentLoaded', function() {
             vitalSignsDiv.querySelector('[name="pupillaryResponse"]').value = vitalSignsData.pupillaryResponse;
             vitalSignsDiv.querySelector('[name="temperature"]').value = vitalSignsData.temperature;
             vitalSignsDiv.querySelector('[name="bloodGlucoseLevel"]').value = vitalSignsData.bloodGlucoseLevel;
+            vitalSignsDiv.querySelector('[name="eyeOpening"]').addEventListener('change', function() {
+                calculateGCS(vitalSignsDiv);
+            });
+            vitalSignsDiv.querySelector('[name="verbalResponse"]').addEventListener('change', function() {
+                calculateGCS(vitalSignsDiv);
+            });
+            vitalSignsDiv.querySelector('[name="motorResponse"]').addEventListener('change', function() {
+                calculateGCS(vitalSignsDiv);
+            });
+            vitalSignsDiv.querySelector('[name="gcsTotal"]').value = vitalSignsData.gcsTotal;
+            calculateGCS(vitalSignsDiv);
         });
-
     }
 });
 

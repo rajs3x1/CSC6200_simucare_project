@@ -124,8 +124,8 @@ Treatment: ${treatmentComplain}`;
             let signsPulseRate = "";
             let signsBloodPressure = "";
             let signsPupillaryResponse = "";
-            let signsGcsTotal = "";
             let signsTemperature = "";
+            let signsGCSTotal = "";
             for(let i = 0 ; i < paraAssess.vitalSignsList.length ; i++){
                 
                 if(i == 0){
@@ -133,18 +133,21 @@ Treatment: ${treatmentComplain}`;
                     signsBloodPressure = `${paraAssess.vitalSignsList[i].bloodPressure}`;
                     signsPupillaryResponse = `${paraAssess.vitalSignsList[i].pupillaryResponse}`;
                     signsTemperature = `${paraAssess.vitalSignsList[i].temperature}`;
+                    signsGCSTotal = `${paraAssess.vitalSignsList[i].gcsTotal}`;
                 }else{
-                    signsPulseRate += `${paraAssess.vitalSignsList[i].pulseRate}`;
-                    signsBloodPressure += `${paraAssess.vitalSignsList[i].bloodPressure}`;
-                    signsPupillaryResponse += `${paraAssess.vitalSigns[i].pupillaryResponse}`;
-                    signsTemperature += `${paraAssess.vitalSignsList[i].temperature}`;
+                    signsPulseRate += `, ${paraAssess.vitalSignsList[i].pulseRate}`;
+                    signsBloodPressure += `, ${paraAssess.vitalSignsList[i].bloodPressure}`;
+                    signsPupillaryResponse += `, ${paraAssess.vitalSignsList[i].pupillaryResponse}`;
+                    signsTemperature += `, ${paraAssess.vitalSignsList[i].temperature}`;
+                    signsGCSTotal += `, ${paraAssess.vitalSignsList[i].gcsTotal}`;
                 }
             }
             
-            document.getElementById('signs').value = `Pulse Rate: ${signsPulseRate}, 
-Blood Pressure: ${signsBloodPressure}, 
-Pupillary Response: ${signsPupillaryResponse},
-Temperature: ${signsTemperature}`;
+document.getElementById('signs').value = `Pulse Rate: ${signsPulseRate}
+Blood Pressure: ${signsBloodPressure}
+Pupillary Response: ${signsPupillaryResponse}
+Temperature: ${signsTemperature}
+GCS Total: ${signsGCSTotal}`;
         }
     };
 
