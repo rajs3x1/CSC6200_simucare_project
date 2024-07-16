@@ -141,12 +141,19 @@
         .cs-button-solid:hover:before {
             width: 100%;
         }
+
+        button#download-pdf {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
 }
-
-
-
-
-
 
 /*-- -------------------------- -->
 <---          Nav bar desktop   -->

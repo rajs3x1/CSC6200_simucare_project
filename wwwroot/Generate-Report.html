@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paramedic Application</title>
 
-    <link rel="stylesheet" href="./css/Stylesheet.css" /> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js" integrity="sha512-vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="./js/Generate-Report.js"></script>
 
-      <link rel="stylesheet" href="./css/Scene-Information.css" />
+    <link rel="stylesheet" href="./css/Stylesheet.css" /> 
 </head>
   
   <body>
@@ -40,7 +43,7 @@
                             <p  id="nav-student">Student</p>
                         </li>
                         <li class="cs-li">
-                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                            <a id="reset-button" href="Index.html" class="cs-li-link reset-button" >Reset</a>
                         </li>
                     </ul>
                 </div>
@@ -62,18 +65,18 @@
             <nav class="cs-sidenav" role="side-navigation">
                     <ul class="sidebar-ul" >
                         <li class="cs-li" onclick="window.location.href='Index.html'">
-                            <a href="Index.html" class="sidebar-link "> Welcome </a>
+                            <a href="Index.html" class="sidebar-link ">Student-Details</a>
                         </li>
-                        <li class="cs-li" onclick="window.location.href='scene-information.html'">
+                        <li class="cs-li" onclick="window.location.href='Scene-Information.html'">
                             <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
                         </li>
                         <li class="cs-li" onclick="window.location.href='Patient-Details.html'">
                             <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
                         </li>
-                        <li class="cs-li" onclick="window.location.href='paramedic-assessment.html'">
+                        <li class="cs-li" onclick="window.location.href='Paramedic-Assessment.html'">
                             <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
                         </li>
-                        <li class="cs-li" onclick="window.location.href='management.html'">
+                        <li class="cs-li" onclick="window.location.href='Management.html'">
                             <a href="Management.html" class="sidebar-link  ">Management</a>
                         </li>
                         <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
@@ -93,11 +96,9 @@
 
 
           <section id="hero-81">
-              <div id="scene-information" class="cs-container">
+              <div id="generate-report" class="cs-container">
                   <h1 class="cs-title">Press button to generate report</h1>
-                  
-                  <a href="Index.html" class="cs-button-solid">Generate</a>                
-                 
+                    <a class="cs-button-solid"><button id="download-pdf">Generate</button></a>                
               </div>
           </section>
 

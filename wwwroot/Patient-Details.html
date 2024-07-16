@@ -6,8 +6,6 @@
     <title>Paramedic Application</title>
 
     <link rel="stylesheet" href="./css/Stylesheet.css" /> 
-
-      <link rel="stylesheet" href="./css/Welcome.css" />
 </head>
   
   <body>
@@ -40,7 +38,7 @@
                             <p  id="nav-student">Student</p>
                         </li>
                         <li class="cs-li">
-                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                            <a id="reset-button" href="Index.html" class="cs-li-link reset-button" >Reset</a>
                         </li>
                     </ul>
                 </div>
@@ -60,18 +58,18 @@
             <nav class="cs-sidenav" role="side-navigation">
                     <ul class="sidebar-ul" >
                         <li class="cs-li " onclick="window.location.href='Index.html'">
-                            <a href="Index.html" class="sidebar-link "> Welcome </a>
+                            <a href="Index.html" class="sidebar-link ">Student-Details</a>
                         </li>
-                        <li class="cs-li" onclick="window.location.href='scene-information.html'">
+                        <li class="cs-li" onclick="window.location.href='Scene-Information.html'">
                             <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
                         </li>
                         <li class="cs-li sidebar-active" onclick="window.location.href='Patient-Details.html'">
                             <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
                         </li>
-                        <li class="cs-li " onclick="window.location.href='paramedic-assessment.html'">
+                        <li class="cs-li " onclick="window.location.href='Paramedic-Assessment.html'">
                             <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
                         </li>
-                        <li class="cs-li " onclick="window.location.href='management.html'">
+                        <li class="cs-li " onclick="window.location.href='Management.html'">
                             <a href="Management.html" class="sidebar-link  ">Management</a>
                         </li>
                         <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
@@ -91,7 +89,8 @@
 
 
           <section id="hero-81">
-              <div class="cs-container">
+              <div id="patient-details" class="cs-container">
+                    <br>
                     <h1 class="cs-topper">Patient details</h1>
                     <div class="form-container">
                         <fieldset>
@@ -172,56 +171,7 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./js/Navbar.js"></script>-->
-      <script>
-        document.getElementById('nextButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default action (navigation)
-
-            // Collect form data
-            const formData = {
-                title: document.getElementById('title').value,
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                dateOfBirth: document.getElementById('dateOfBirth').value,
-                age: document.getElementById('age').value,
-                gender: document.getElementById('gender').value,
-                weight: document.getElementById('weight').value,
-                address: document.getElementById('address').value,
-                phone: document.getElementById('phone').value,
-            };
-
-            // Store form data in localStorage
-            localStorage.setItem('patientDetails', JSON.stringify(formData));
-
-            // Redirect to the next page
-            window.location.href = 'Paramedic-Assessment.html';
-        });
-
-        document.getElementById('dateOfBirth').addEventListener('change', function() {
-            const dob = new Date(this.value);
-            const today = new Date();
-            let age = today.getFullYear() - dob.getFullYear();
-            document.getElementById('age').value = age;
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Retrieve the stored data from localStorage
-            const patientDetails = JSON.parse(localStorage.getItem('patientDetails'));
-
-            if (patientDetails) {
-                // Populate the form fields with the retrieved data
-                document.getElementById('title').value = patientDetails.title;
-                document.getElementById('firstName').value = patientDetails.firstName;
-                document.getElementById('lastName').value = patientDetails.lastName;
-                document.getElementById('dateOfBirth').value = patientDetails.dateOfBirth;
-                document.getElementById('age').value = patientDetails.age;
-                document.getElementById('gender').value = patientDetails.gender;
-                document.getElementById('weight').value = patientDetails.weight;
-                document.getElementById('address').value = patientDetails.address;
-                document.getElementById('phone').value = patientDetails.phone;
-            }
-        });
-    </script>
-
-    <script src="./js/navbar.js"></script>
+    <script src="./js/Patient-Details.js"></script>
+    <script src="./js/Navbar.js"></script>
   </body>
     </html>

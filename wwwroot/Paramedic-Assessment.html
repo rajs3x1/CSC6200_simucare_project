@@ -41,7 +41,7 @@
                             <p  id="nav-student">Student</p>
                         </li>
                         <li class="cs-li">
-                            <a id="reset-button" href="index.html" class="cs-li-link reset-button" >Reset</a>
+                            <a id="reset-button" href="Index.html" class="cs-li-link reset-button" >Reset</a>
                         </li>
                     </ul>
                 </div>
@@ -61,18 +61,18 @@
             <nav class="cs-sidenav" role="side-navigation">
                     <ul class="sidebar-ul" >
                         <li class="cs-li " onclick="window.location.href='Index.html'">
-                            <a href="Index.html" class="sidebar-link "> Welcome </a>
+                            <a href="Index.html" class="sidebar-link ">Student-Details</a>
                         </li>
-                        <li class="cs-li" onclick="window.location.href='scene-information.html'">
+                        <li class="cs-li" onclick="window.location.href='Scene-Information.html'">
                             <a href="Scene-Information.html" class="sidebar-link">Scene-Information</a>
                         </li>
                         <li class="cs-li" onclick="window.location.href='Patient-Details.html'">
                             <a href="Patient-Details.html" class="sidebar-link  ">Patient-Details</a>
                         </li>
-                        <li class="cs-li sidebar-active" onclick="window.location.href='paramedic-assessment.html'">
+                        <li class="cs-li sidebar-active" onclick="window.location.href='Paramedic-Assessment.html'">
                             <a href="Paramedic-Assessment.html" class="sidebar-link  ">Paramedic-Assessment</a>
                         </li>
-                        <li class="cs-li " onclick="window.location.href='management.html'">
+                        <li class="cs-li " onclick="window.location.href='Management.html'">
                             <a href="Management.html" class="sidebar-link  ">Management</a>
                         </li>
                         <li class="cs-li " onclick="window.location.href='Case-Narrative.html'">
@@ -92,7 +92,7 @@
 
 
           <section id="hero-81">
-              <div class="cs-container">
+              <div id="paramedic-assessment" class="cs-container">
                
                     <h1 class="cs-topper">Paramedic Assesment</h1>
                      <div class="paramedic-assessment" class="form-container">
@@ -334,7 +334,7 @@
                                     <label for="glasgowComaScale">Glasgow Coma Scale:</label>
                                     <div class="form-group">
                                         <label for="eyeOpening">Eye Opening:</label>
-                                        <select id="eyeOpening" name="eyeOpening" onchange="calculateGCS()">
+                                        <select id="eyeOpening" name="eyeOpening">
                                             <option value="4">4</option>
                                             <option value="3">3</option>
                                             <option value="2">2</option>
@@ -343,7 +343,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="verbalResponse">Verbal Response:</label>
-                                        <select id="verbalResponse" name="verbalResponse" onchange="calculateGCS()">
+                                        <select id="verbalResponse" name="verbalResponse">
                                             <option value="5">5</option>
                                             <option value="4">4</option>
                                             <option value="3">3</option>
@@ -353,7 +353,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="motorResponse">Motor Response:</label>
-                                        <select id="motorResponse" name="motorResponse" onchange="calculateGCS()">
+                                        <select id="motorResponse" name="motorResponse">
                                             <option value="6">6</option>
                                             <option value="5">5</option>
                                             <option value="4">4</option>
@@ -422,7 +422,7 @@
       <!-- <script defer src="./js/Navbar.js"></script>-->
     
     <script src="./js/Paramedic-Assessment.js"></script>
-    <script src="./js/navbar.js"></script>
+    <script src="./js/Navbar.js"></script>
 
 
   </body>

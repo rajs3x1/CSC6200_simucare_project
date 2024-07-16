@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('logedin-studentId');
+    const form = document.getElementById('loggedin-studentId');
     const nextButton = document.getElementById('next-button');
 
     // Function to save form data to localStorage
     const saveFormData = () => {
         const studentId = document.getElementById('student-id').value;
         const studentName = document.getElementById('student-name').value;
-     
+
         const studentData = {
             studentId,
             studentName
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savedData) {
             const studentData = JSON.parse(savedData);
 
-            document.getElementById('student-id').value = studentData.studentName;
-            document.getElementById('student-name').value = studentData.studentId;
+            document.getElementById('student-id').value = studentData.studentId;
+            document.getElementById('student-name').value = studentData.studentName;
         }
     };
 
@@ -38,4 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
         // Navigate to the next page
         window.location.href = 'Scene-Information.html';
     });
-})
+});
