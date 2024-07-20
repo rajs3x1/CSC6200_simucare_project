@@ -24,7 +24,7 @@
 
 // Adding Presenting Complaint
 
-    function addPresentingComplaint() {
+      function addPresentingComplaint() {
         const container = document.getElementById('presentingComplaintContainer');
         const newComplaint = document.querySelector('.presenting-complaint').cloneNode(true);
     
@@ -45,6 +45,7 @@
         deleteButton.onclick = function() {
             deletePresentingComplaint(this);
         };
+        
         newComplaint.appendChild(deleteButton);
     
         container.appendChild(newComplaint);
@@ -53,44 +54,13 @@
     function deletePresentingComplaint(button) {
         const complaintSection = button.closest('.presenting-complaint');
         complaintSection.remove();
-    }
-    
-    
-// Adding Patient History
+    }  
 
-function addPatientHistory() {
-    const container = document.getElementById('patientHistoryContainer');
-    const newHistory = document.querySelector('.patient-history').cloneNode(true);
-
-    // Clear the values in the cloned elements
-    newHistory.querySelectorAll('textarea').forEach(textarea => textarea.value = '');
-    newHistory.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
-    newHistory.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-
-    // Remove existing delete button if any
-    const existingDeleteButton = newHistory.querySelector('.delete-button');
-    if (existingDeleteButton) {
-        existingDeleteButton.remove();
-    }
-
-    // Add delete button to new history section
-    const deleteButton = document.createElement('button');
-    deleteButton.type = 'button';
-    deleteButton.className = 'delete-button';
-    deleteButton.innerText = 'Delete';
-    deleteButton.onclick = function() {
-        deletePatientHistory(this);
-    };
-    newHistory.appendChild(deleteButton);
-
-    container.appendChild(newHistory);
-}
-
-function deletePatientHistory(button) {
-    const historySection = button.closest('.patient-history');
-    historySection.remove();
-}
-
+    document.addEventListener('DOMContentLoaded', function() {
+        const initialDeleteButton = document.querySelector('.presenting-complaint .delete-button');
+        initialDeleteButton.style.display = 'none'; // Ensure the delete button is hidden for the first complaint
+    });
+        
 // Add VitalSigns
 
 function addVitalSigns() {
@@ -138,6 +108,11 @@ function deleteVitalSigns(button) {
     const vitalSignsSection = button.closest('.vital-signs');
     vitalSignsSection.remove();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const initialDeleteButton = document.querySelector('.vital-signs .delete-button');
+    initialDeleteButton.style.display = 'none'; // Ensure the delete button is hidden for the first complaint
+});
 
 document.getElementById('nextButtonParamedicAssessment').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the default action (navigation)
