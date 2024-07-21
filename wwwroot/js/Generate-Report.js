@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const pdfUrl = URL.createObjectURL(pdfBlob);
             const link = document.createElement('a');
             link.href = pdfUrl;
-            link.download = 'Assessment.pdf';
+            link.download = `${studentData.studentId || 'unknown'}_${studentData.studentName || 'unknown'}_${patientData.lastName || 'unknown'}.pdf`;
             link.click();
             URL.revokeObjectURL(pdfUrl);
         }
