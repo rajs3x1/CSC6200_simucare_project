@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const savedParamedicData = localStorage.getItem('paramedicAssessment');
             const paramedicAssessment = savedParamedicData ? JSON.parse(savedParamedicData) : {};
 
+            const savedManagementData = localStorage.getItem('managementFormData');
+            const managementFormData = savedManagementData ? JSON.parse(savedManagementData) : {};
+
             function createNewPage() {
                 const page = pdfDoc.addPage();
                 const { width, height } = page.getSize();
@@ -71,37 +74,38 @@ document.addEventListener('DOMContentLoaded', function() {
             let page = createNewPage();
             const { width, height } = page.getSize();
             const fontSizeHeading = 15;
-            const fontSizeSubHeading = 12;
             const fontSizeField = 10;
             const fontSizeFooter = 8;
             const margin = 20;
             const padding = 10;
             const maxWidth = width - 2 * margin - 2 * padding;
             let currentYPosition = height - margin - padding;
-
-            function drawSection(title, contentGenerator, offset = 0) {
+            
+            function drawSection(title, contentGenerator, offset = 0, includeTitle = true, drawLines = true) {
                 if (currentYPosition - 40 < margin + padding) {
                     page = createNewPage();
                     currentYPosition = height - margin - padding;
                 }
-
-                page.drawText(title, {
-                    x: margin + padding,
-                    y: currentYPosition + offset,
-                    size: fontSizeHeading,
-                    font: helveticaFont,
-                    color: rgb(0.31, 0.3, 0.4),
-                });
-
-                currentYPosition -= 20 + offset;
-                contentGenerator();
-
-                if (currentYPosition - 20 < margin + padding) {
-                    page = createNewPage();
-                    currentYPosition = height - margin - padding;
+            
+                if (includeTitle && title) {
+                    page.drawText(title, {
+                        x: margin + padding,
+                        y: currentYPosition + offset,
+                        size: fontSizeHeading,
+                        font: helveticaFont,
+                        color: rgb(0.31, 0.3, 0.4),
+                    });
                 }
-
-                if (title !== 'Vital Signs') { // Do not draw line for Vital Signs section
+            
+                currentYPosition -= (includeTitle ? 20 : 0) + offset;
+                contentGenerator();
+            
+                if (drawLines) {
+                    if (currentYPosition - 20 < margin + padding) {
+                        page = createNewPage();
+                        currentYPosition = height - margin - padding;
+                    }
+            
                     page.drawLine({
                         start: { x: margin + padding, y: currentYPosition },
                         end: { x: width - margin - padding, y: currentYPosition },
@@ -111,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition -= 20;
                 }
             }
+            
 
             // Draw Student Details section
             drawSection('Student Details', () => {
@@ -138,27 +143,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentYPosition = drawTextWithWrap(page, `Address: ${patientData.address || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
             });
 
-            // Draw Paramedic Assessment section
-            drawSection('Paramedic Assessment', () => {
+            // Draw Paramedic Assessment section without header
+            drawSection('', () => {  // Pass an empty string for the title
                 const presentingComplaints = paramedicAssessment.complaints || [];
                 const presentingComplaintsSubHeading = 'Presenting Complaints';
 
+                // Check if we need a new page
                 if (currentYPosition - 40 < margin + padding) {
                     page = createNewPage();
                     currentYPosition = height - margin - padding;
                 }
 
+                // Draw the subheading for presenting complaints
                 page.drawText(presentingComplaintsSubHeading, {
                     x: margin + padding,
-                    y: currentYPosition,
-                    size: fontSizeSubHeading,
+                    y: currentYPosition + 15, // Move up by 10px
+                    size: fontSizeHeading,
                     font: helveticaFont,
                     color: rgb(0.31, 0.3, 0.4),
                 });
-                currentYPosition -= 20;
+                currentYPosition -= 10; // Adjust for subheading height + move up by 10px
 
+                // Define a reduced space between complaints
+                const complaintSpacing = 5; // Reduced spacing between complaints
+
+                // Draw each presenting complaint
                 presentingComplaints.forEach((complaint, index) => {
                     if (index > 0) {
+                        // Check if we need a new page for each complaint
                         if (currentYPosition - 40 < margin + padding) {
                             page = createNewPage();
                             currentYPosition = height - margin - padding;
@@ -179,22 +191,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition = drawTextWithWrap(page, `Attribute: ${complaint.attribute || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                     currentYPosition = drawTextWithWrap(page, `Treatment: ${complaint.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
 
-                    currentYPosition -= 20;
-                });
+                    currentYPosition -= complaintSpacing; // Reduced space between complaints
+                }, 0, false);  // Set 'includeTitle' to false to avoid drawing the header
             });
 
-            // Draw multiple Vital Signs sections
-            drawSection('Vital Signs', () => {
+
+            // Draw multiple Vital Signs sections without the header
+            drawSection('', () => {  // Pass an empty string for the title to omit the header
                 const vitalSignsList = paramedicAssessment.vitalSignsList || [];
                 vitalSignsList.forEach((vitalSigns, index) => {
                     if (index > 0) {
+                        // Check if we need a new page for each vital signs entry
                         if (currentYPosition - 40 < margin + padding) {
                             page = createNewPage();
                             currentYPosition = height - margin - padding;
                         }
                     }
 
-                    currentYPosition = drawTextWithWrap(page, `Vital Signs #${index + 1}`, margin + padding, currentYPosition, timesRomanFont, fontSizeSubHeading, maxWidth, 20);
+                    // Draw Vital Signs details without the header
+                    currentYPosition = drawTextWithWrap(page, `Vital Signs #${index + 1}`, margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
                     currentYPosition = drawTextWithWrap(page, `Time Assessed: ${vitalSigns.timeAssessed || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                     currentYPosition = drawTextWithWrap(page, `Pulse Rate: ${vitalSigns.pulseRate || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                     currentYPosition = drawTextWithWrap(page, `Blood Pressure: ${vitalSigns.bloodPressure || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
@@ -225,24 +240,95 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentYPosition = drawTextWithWrap(page, `Adverse Drug Reactions: ${histories.adverseDrugReactions || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
             });
 
-            // Draw Diagnosis section
-            drawSection('Diagnosis', () => {
-                const diagnosis = paramedicAssessment.diagnosis || {};
-                currentYPosition = drawTextWithWrap(page, `Primary Diagnosis: ${diagnosis.primaryDiagnosis || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Secondary Diagnosis: ${diagnosis.secondaryDiagnosis || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+            // Draw Management Form section without header and lines
+            drawSection('', () => {
+                const managementList = managementFormData.management || [];
+                managementList.forEach((management, index) => {
+                    if (index > 0) {
+                        if (currentYPosition - 40 < margin + padding) {
+                            page = createNewPage();
+                            currentYPosition = height - margin - padding;
+                        }
+                    }
+
+                    currentYPosition = drawTextWithWrap(page, `Management Form #${index + 1}`, margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, `Time: ${management.time || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition = drawTextWithWrap(page, `Description: ${management.description || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition -= 20;
+                });
+            }, 0, false, false);  // Set 'includeTitle' to false to omit the header and lines
+
+
+            // Draw Management Form section without header and lines
+            drawSection('', () => {
+                const managementList = managementFormData.management || [];
+                managementList.forEach((management, index) => {
+                    if (index > 0) {
+                        if (currentYPosition - 40 < margin + padding) {
+                            page = createNewPage();
+                            currentYPosition = height - margin - padding;
+                        }
+                    }
+
+                    currentYPosition = drawTextWithWrap(page, `Management Form #${index + 1}`, margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, `Time: ${management.time || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition = drawTextWithWrap(page, `Description: ${management.description || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition -= 20;
+                });
+            }, 0, false, false);
+
+
+            // Draw Drug Therapy section without the header
+            drawSection('', () => {  // Pass an empty string for the title to omit the header
+                const drugTherapyList = managementFormData.drugTherapy || [];
+                drugTherapyList.forEach((therapy, index) => {
+                    if (index > 0) {
+                        // Check if we need a new page for each therapy entry
+                        if (currentYPosition - 40 < margin + padding) {
+                            page = createNewPage();
+                            currentYPosition = height - margin - padding;
+                        }
+                    }
+
+                    // Draw Drug Therapy details without the header
+                    currentYPosition = drawTextWithWrap(page, `Drug Therapy #${index + 1}`, margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, `Time of Administration: ${therapy.timeOfAdmin || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition = drawTextWithWrap(page, `Drug Name: ${therapy.drugName || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition = drawTextWithWrap(page, `Drug Dose: ${therapy.drugDose || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition = drawTextWithWrap(page, `Route of Administration: ${therapy.routeAdministration || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition -= 20;
+                });
             });
 
+            // Draw Other Management section without the header
+            drawSection('', () => {  // Pass an empty string for the title to omit the header
+                const otherManagementList = managementFormData.otherManagement || [];
+                otherManagementList.forEach((management, index) => {
+                    if (index > 0) {
+                        // Check if we need a new page for each management entry
+                        if (currentYPosition - 40 < margin + padding) {
+                            page = createNewPage();
+                            currentYPosition = height - margin - padding;
+                        }
+                    }
+
+                    // Draw Other Management details without the header
+                    currentYPosition = drawTextWithWrap(page, `Other Management #${index + 1}`, margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, `Time of Management: ${management.timeOfManagement || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition = drawTextWithWrap(page, `Management Given: ${management.managementGiven || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition -= 20;
+                });
+            });
             const pdfBytes = await pdfDoc.save();
-            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'patient-report.pdf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'Assessment.pdf';
+            link.click();
+            URL.revokeObjectURL(pdfUrl);
         }
 
-        createPdf();
+        await createPdf();
     });
 });
