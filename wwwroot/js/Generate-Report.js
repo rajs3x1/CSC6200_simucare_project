@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const savedManagementData = localStorage.getItem('managementFormData');
             const managementFormData = savedManagementData ? JSON.parse(savedManagementData) : {};
 
+            const savedCaseNarrative = localStorage.getItem('caseNarrative');
+            const caseNarrative = savedCaseNarrative ? JSON.parse(savedCaseNarrative) : {};
+            const caseNarrativeContent = caseNarrative.caseNarrativeContent || '';
+
+
             function createNewPage() {
                 const page = pdfDoc.addPage();
                 const { width, height } = page.getSize();
@@ -69,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 lines.push(currentLine);
                 return lines;
-            }
+            }            
 
             let page = createNewPage();
             const { width, height } = page.getSize();
@@ -319,6 +324,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition -= 20;
                 });
             });
+      
+            // Draw Case Narrative section with a header
+            drawSection('Case Narrative', () => {
+                // Define case narrative content
+                const narrativeContent = caseNarrativeContent || '';
+
+                // Check if space is needed for the case narrative
+                if (currentYPosition - 40 < margin + padding) {
+                    page = createNewPage();
+                    currentYPosition = height - margin - padding;
+                }
+
+                    // Draw Case Narrative header
+                    currentYPosition = drawTextWithWrap(page, 'Case Narrative:', margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, narrativeContent, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition -= 20;
+            });
+
             const pdfBytes = await pdfDoc.save();
             const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
             const pdfUrl = URL.createObjectURL(pdfBlob);
