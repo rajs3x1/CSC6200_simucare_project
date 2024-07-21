@@ -342,6 +342,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition -= 20;
             });
 
+            // Add page numbers
+            const totalPages = pdfDoc.getPageCount();
+            pdfDoc.getPages().forEach((page, index) => {
+                const { width, height } = page.getSize();
+                page.drawText(`Page ${index + 1} of ${totalPages}`, {
+                    x: width - margin - 50, // Adjust x position as needed
+                    y: margin, // Adjust y position as needed
+                    size: fontSizeFooter,
+                    font: helveticaFont,
+                    color: rgb(0.31, 0.3, 0.4),
+                });
+            });
+
             const pdfBytes = await pdfDoc.save();
             const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
             const pdfUrl = URL.createObjectURL(pdfBlob);
