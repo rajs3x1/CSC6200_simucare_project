@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
       
             // Draw Case Narrative section with a header
-            drawSection('Case Narrative', () => {
+            drawSection('', () => {
                 // Define case narrative content
                 const narrativeContent = caseNarrativeContent || '';
 
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                     // Draw Case Narrative header
-                    currentYPosition = drawTextWithWrap(page, 'Case Narrative:', margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, 'Case Narrativei', margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
                     currentYPosition = drawTextWithWrap(page, narrativeContent, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                     currentYPosition -= 20;
             });
