@@ -1,11 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-button');
 
+    const saveFormData = () => {
+    
+        const handover = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            dateOfBirth: document.getElementById('dob').value,
+            age: document.getElementById('age').value,
+            information: document.getElementById('information-complaint').value,
+            signs: document.getElementById('signs').value,
+            Treatment: document.getElementById('Treatment').value,
+            allergies: document.getElementById('allergies').value,
+            Medications: document.getElementById('Medications').value,
+            background: document.getElementById('background').value,
+            drug: document.getElementById('drug-reactions').value,
+            other: document.getElementById('other').value,
+            complaints:document.getElementById('complaints').value
+        };
+
+        localStorage.setItem('handOver', JSON.stringify(handover));
+    };
+
     // Function to load form data from localStorage
     const loadFormData = () => {
         const savedPatientDetails = localStorage.getItem('patientDetails');
         const savedParaAssess = localStorage.getItem('paramedicAssessment')
+        const savedHandoverData = localStorage.getItem('handOver');
         
+        if (savedHandoverData) {
+            const formData = JSON.parse(savedHandoverData);
+
+            document.getElementById('complaints').value = formData.complaints;
+            document.getElementById('information-complaint').value = formData.information;
+            document.getElementById('signs').value = formData.signs;
+            document.getElementById('Treatment').value = formData.Treatment;
+            document.getElementById('allergies').value = formData.allergies;
+            document.getElementById('Medications').value = formData.Medications;
+            document.getElementById('background').value = formData.background;
+            document.getElementById('drug-reactions').value = formData.drug;
+            document.getElementById('other').value = formData.other;
+        }
+    
 
         //patient details
         if (savedPatientDetails) {
@@ -17,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('age').value = patientDetails.age;
         }
 
-        
+      /*  
         if(savedParaAssess){
             const paraAssess = JSON.parse(savedParaAssess);
             
@@ -142,13 +178,17 @@ Treatment: ${treatmentComplain}`;
                     signsGCSTotal += `, ${paraAssess.vitalSignsList[i].gcsTotal}`;
                 }
             }
-            
+           
 document.getElementById('signs').value = `Pulse Rate: ${signsPulseRate}
 Blood Pressure: ${signsBloodPressure}
 Pupillary Response: ${signsPupillaryResponse}
 Temperature: ${signsTemperature}
 GCS Total: ${signsGCSTotal}`;
+
+
         }
+
+*/
     };
 
     // Load form data when the page loads
@@ -157,10 +197,10 @@ GCS Total: ${signsGCSTotal}`;
     if (nextButton) {
         nextButton.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent the default link behavior
-
+            saveFormData();
 
             // Navigate to the next page
-            window.location.href = 'Patient-Details.html';
+            window.location.href = 'Generate-Report.html';
         });
     }
 });
