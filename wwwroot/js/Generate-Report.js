@@ -35,12 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const page = pdfDoc.addPage();
                 const { width, height } = page.getSize();
                 const uniSQDims = uniSQImage.scale(0.2);
+                
+                // Draw the image at the top right corner with some padding
                 page.drawImage(uniSQImage, {
                     x: width - uniSQDims.width - 20,
                     y: height - uniSQDims.height - 20,
                     width: uniSQDims.width,
                     height: uniSQDims.height,
                 });
+                
                 return page;
             }
 
@@ -55,26 +58,50 @@ document.addEventListener('DOMContentLoaded', function() {
                         color: rgb(0, 0, 0),
                     });
                 });
-                return y - (lines.length * lineHeight);
+                return y - (lines.length * lineHeight); // Return the new Y position
             }
-
+            
+            
             function wrapText(text, font, fontSize, maxWidth) {
                 const lines = [];
                 const words = text.split(' ');
                 let currentLine = '';
-                for (const word of words) {
+            
+                words.forEach(word => {
                     const testLine = currentLine + (currentLine ? ' ' : '') + word;
                     const testWidth = font.widthOfTextAtSize(testLine, fontSize);
+            
                     if (testWidth > maxWidth) {
-                        lines.push(currentLine);
-                        currentLine = word;
+                        if (currentLine.length > 0) {
+                            lines.push(currentLine);
+                            currentLine = word;
+                        } else {
+                            // For very long words, break them if they exceed maxWidth
+                            const chars = word.split('');
+                            let newLine = '';
+                            chars.forEach(char => {
+                                if (font.widthOfTextAtSize(newLine + char, fontSize) > maxWidth) {
+                                    lines.push(newLine);
+                                    newLine = char;
+                                } else {
+                                    newLine += char;
+                                }
+                            });
+                            lines.push(newLine);
+                            currentLine = '';
+                        }
                     } else {
                         currentLine = testLine;
                     }
+                });
+            
+                if (currentLine.length > 0) {
+                    lines.push(currentLine);
                 }
-                lines.push(currentLine);
+            
                 return lines;
-            }            
+            }
+                                
 
             let page = createNewPage();
             const { width, height } = page.getSize();
@@ -121,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
+            
 
             // Draw Student Details section
             drawSection('Student Details', () => {
@@ -146,6 +174,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentYPosition = drawTextWithWrap(page, `Phone: ${patientData.phone || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Weight (kg): ${patientData.weight || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Address: ${patientData.address || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+            });
+
+            // Draw Case Narrative section witho a header
+            drawSection('', () => {
+                // Define case narrative content
+                const narrativeContent = caseNarrativeContent || '';
+
+                // Check if space is needed for the case narrative
+                if (currentYPosition - 40 < margin + padding) {
+                    page = createNewPage();
+                    currentYPosition = height - margin - padding;
+                }
+
+                    // Draw Case Narrative header
+                    currentYPosition = drawTextWithWrap(page, 'Case Narrative', margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
+                    currentYPosition = drawTextWithWrap(page, narrativeContent, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                    currentYPosition -= 20;
             });
 
             // Draw Paramedic Assessment section without header
@@ -323,23 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition = drawTextWithWrap(page, `Management Given: ${management.managementGiven || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                     currentYPosition -= 20;
                 });
-            });
-      
-            // Draw Case Narrative section with a header
-            drawSection('', () => {
-                // Define case narrative content
-                const narrativeContent = caseNarrativeContent || '';
-
-                // Check if space is needed for the case narrative
-                if (currentYPosition - 40 < margin + padding) {
-                    page = createNewPage();
-                    currentYPosition = height - margin - padding;
-                }
-
-                    // Draw Case Narrative header
-                    currentYPosition = drawTextWithWrap(page, 'Case Narrative', margin + padding, currentYPosition, timesRomanFont, fontSizeHeading, maxWidth, 20);
-                    currentYPosition = drawTextWithWrap(page, narrativeContent, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                    currentYPosition -= 20;
             });
 
             // Add page numbers
