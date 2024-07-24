@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const caseNarrative = savedCaseNarrative ? JSON.parse(savedCaseNarrative) : {};
             const caseNarrativeContent = caseNarrative.caseNarrativeContent || '';
 
+            const savedHandoverData = localStorage.getItem('handOver');
+            const handoverData = savedHandoverData ? JSON.parse(savedHandoverData) : {};
+
 
             function createNewPage() {
                 const page = pdfDoc.addPage();
@@ -368,6 +371,45 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition = drawTextWithWrap(page, `Management Given: ${management.managementGiven || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                     currentYPosition -= 20;
                 });
+            });
+
+            // Draw Handover section
+            drawSection('Handover', () => {
+                currentYPosition = drawTextWithWrap(page, `Patient's First Name: ${handoverData.firstName || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Patient's Last Name: ${handoverData.lastName || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Age: ${handoverData.age || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Date of Birth: ${handoverData.dateOfBirth || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Mechanism/Complaints: ${handoverData.complaints || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+
+                currentYPosition = drawTextWithWrap(page, `Injuries/Information About Complaint:`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                const info = handoverData.injuriesInfo || {};
+                currentYPosition = drawTextWithWrap(page, `Nature: ${info.nature || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Intensity: ${info.intensity || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Location: ${info.location || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Duration: ${info.duration || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Onset: ${info.onset || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Contributing: ${info.contributing || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Aggravating: ${info.aggravating || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Alleviating: ${info.alleviating || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Frequency: ${info.frequency || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Impact: ${info.impact || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Attribute: ${info.attribute || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Treatment: ${info.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+
+                currentYPosition = drawTextWithWrap(page, `Signs:`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                const signs = handoverData.signs || {};
+                currentYPosition = drawTextWithWrap(page, `Pulse Rate: ${signs.pulseRate || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Blood Pressure: ${signs.bloodPressure || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Pupillary Response: ${signs.pupillaryResponse || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Temperature: ${signs.temperature || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `GCS Total: ${signs.gcsTotal || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+
+                currentYPosition = drawTextWithWrap(page, `Treatment: ${handoverData.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Allergies: ${handoverData.allergies || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Medications: ${handoverData.medications || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Background: ${handoverData.background || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Adverse Drug Reactions: ${handoverData.adverseDrugReactions || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Other: ${handoverData.other || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
             });
 
             // Add page numbers
