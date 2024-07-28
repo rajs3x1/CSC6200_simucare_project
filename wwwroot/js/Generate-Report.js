@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
             const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-            const uniSQImg = "/wwwroot/img/logo-USQ.png";
+            const uniSQImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMjtc95Hv3T0hI5n_N1LLiplUgpm4f8cGPpg&s";
             const uniSQImgBytes = await fetch(uniSQImg).then(res => res.arrayBuffer());
             const uniSQImage = await pdfDoc.embedPng(uniSQImgBytes);
 
