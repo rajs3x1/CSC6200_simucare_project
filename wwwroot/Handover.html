@@ -96,7 +96,7 @@
                     <form>
                         <!-- Identity -->
                         <fieldset id="identity-field">
-                            <legend>Identity:</legend>
+                            
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">Patient's First Name:</label>
@@ -122,11 +122,11 @@
                             <legend></legend>
                             <div class="form-row">
                                 <div class="form-group">
-                                  <label for="complaints">Mechanism/Complaints:</label>
+                                  <label for="complaints">Mechanism/Complaints (Pre Filled):</label>
                                   <textarea
                                     id="complaints"
                                     name="complaints"
-                                    rows="2" readonly
+                                    rows="2" 
                                   ></textarea>
                                 </div>
                               </div>
@@ -136,11 +136,11 @@
                           <legend></legend>
                           <div class="form-row">
                               <div class="form-group">
-                                <label for="information-complaint">Injuries/Information About Complaint:</label>
+                                <label for="information-complaint">Injuries/Information About Complaint (Pre Filled):</label>
                                 <textarea
                                   id="information-complaint"
                                   name="information-complaint"
-                                  rows="15" readonly
+                                  rows="15" 
                                 ></textarea>
                               </div>
                             </div>
@@ -150,50 +150,113 @@
                             <legend></legend>
                             <div class="form-row">
                                 <div class="form-group">
-                                  <label for="signs">Signs:</label>
+                                  <label for="signs">Signs (Pre Filled):</label>
                                   <textarea
                                     id="signs"
                                     name="signs"
-                                    rows="8"readonly
+                                    rows="8"
                                   ></textarea>
                                 </div>
                               </div>
                         </fieldset>
+
+                        <!-- Treatment -->
+                        <fieldset id="Treatment-field">
+                          <legend></legend>
+                          <div class="form-row">
+                              <div class="form-group">
+                                <label for="Treatment">Treatment (Enter Text):</label>
+                                <textarea
+                                  id="Treatment"
+                                  name="Treatment"
+                                  rows="8" 
+                                ></textarea>
+                              </div>
+                            </div>
+                      </fieldset>
+
+
                         
                         <!-- Allergies and Adverse Drug Reactions -->
                         <fieldset id="allergies-field">
                             <legend></legend>
                             <div class="form-row">
                                 <div class="form-group">
-                                  <label for="allergies">Allergies :</label>
+                                  <label for="allergies">Allergies (Pre Filled):</label>
                                   <textarea
                                     id="allergies"
                                     name="allergies"
-                                    rows="2"readonly
+                                    rows="4"
                                   ></textarea>
                                 </div>
                               </div>
                         </fieldset>
+
+                      <!-- Medications -->
+                      <fieldset id="Medications-field">
+                        <legend></legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                              <label for="Medications">Medications (Enter Text):</label>
+                              <textarea
+                                id="Medications"
+                                name="Medications"
+                                rows="4"
+                              ></textarea>
+                            </div>
+                          </div>
+                    </fieldset>
+
+                    <!-- Background -->
+                    <fieldset id="Background-field">
+                      <legend></legend>
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label for="background">Background (Enter Text):</label>
+                            <textarea
+                              id="background"
+                              name="background"
+                              rows="4"
+                            ></textarea>
+                          </div>
+                        </div>
+                  </fieldset>
+
                         <!-- Allergies and Adverse Drug Reactions -->
-                        <fieldset id="Drug-field">
+                        <fieldset id="Drug-Reactions-Field">
                           <legend></legend>
                           <div class="form-row">
                               <div class="form-group">
-                                <label for="drug-reactions">Adverse Drug Reactions:</label>
+                                <label for="drug-reactions">Adverse Drug Reactions (Enter Text):</label>
                                 <textarea
                                   id="drug-reactions"
                                   name="drug-reactions"
-                                  rows="2"readonly
+                                  rows="4"
                                 ></textarea>
                               </div>
                             </div>
                       </fieldset>
-                         
+
+                      <!-- Other -->
+                      <fieldset id="Other-field">
+                        <legend></legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                              <label for="other">Other (Enter Text):</label>
+                              <textarea
+                                id="other"
+                                name="other"
+                                rows="4"
+                              ></textarea>
+                            </div>
+                          </div>
+                    </fieldset>
+                      
 
                     </form>
                 </div>  
                   <a href="Case-Narrative.html" class="cs-button-solid">Previous</a>                
-                <a href="Generate-Report.html" class="cs-button-solid">Save and Next</a>
+                <a id="next-button" class="cs-button-solid">Save and Next</a>
               </div>
           </section>
 
@@ -204,7 +267,8 @@
       <!--                   Footer                     -->
       <!-- ============================================ -->
       <!-- <script defer src="./js/Navbar.js"></script>-->
-      <script src ="./js/Handover.js">
+      <script src ="./js/Handover.js"></script>
+      <script src="./js/Navbar.js"></script>
         
     </script>
   </body>
