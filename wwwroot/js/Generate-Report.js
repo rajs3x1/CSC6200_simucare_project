@@ -382,7 +382,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentYPosition = drawTextWithWrap(page, `Mechanism/Complaints: ${handoverData.complaints || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
 
                 currentYPosition = drawTextWithWrap(page, `Injuries/Information About Complaint:`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                const info = handoverData.injuriesInfo || {};
+
+                // Extract and parse the 'information' field
+                const information = handoverData.information || '';
+                const infoLines = information.split('\n');
+
+                // Initialize the info object with the extracted values
+                const info = {
+                    nature: '',
+                    intensity: '',
+                    location: '',
+                    duration: '',
+                    onset: '',
+                    contributing: '',
+                    aggravating: '',
+                    alleviating: '',
+                    frequency: '',
+                    impact: '',
+                    attribute: '',
+                    treatment: ''
+                };
+
+                // Map each line of the 'information' string to the respective property in the 'info' object
+                infoLines.forEach(line => {
+                    const [key, value] = line.split(':').map(part => part.trim());
+                    if (key && value && info.hasOwnProperty(key.toLowerCase())) {
+                        info[key.toLowerCase()] = value;
+                    }
+                });
+
                 currentYPosition = drawTextWithWrap(page, `Nature: ${info.nature || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Intensity: ${info.intensity || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Location: ${info.location || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
@@ -395,20 +423,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentYPosition = drawTextWithWrap(page, `Impact: ${info.impact || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Attribute: ${info.attribute || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Treatment: ${info.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                
+                // Extract and parse the 'signs' field
+                const signs = handoverData.signs || '';
+                const signsLines = signs.split('\n');
 
-                currentYPosition = drawTextWithWrap(page, `Signs:`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                const signs = handoverData.signs || {};
-                currentYPosition = drawTextWithWrap(page, `Pulse Rate: ${signs.pulseRate || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Blood Pressure: ${signs.bloodPressure || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Pupillary Response: ${signs.pupillaryResponse || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Temperature: ${signs.temperature || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `GCS Total: ${signs.gcsTotal || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                // Initialize the signs object with the extracted values
+                const signsObj = {
+                    pulseRate: '',
+                    bloodPressure: '',
+                    pupillaryResponse: '',
+                    temperature: '',
+                    gcsTotal: ''
+                };
+
+                // Map each line of the 'signs' string to the respective property in the 'signsObj' object
+                signsLines.forEach(line => {
+                    const [key, value] = line.split(':').map(part => part.trim());
+                    if (key && value && signsObj.hasOwnProperty(key.toLowerCase().replace(/\s+/g, ''))) {
+                        signsObj[key.toLowerCase().replace(/\s+/g, '')] = value;
+                    }
+                });
+                
+                // Draw the text fields with the updated signsObj object
+                currentYPosition = drawTextWithWrap(page, `Pulse Rate: ${signsObj.pulserate}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Blood Pressure: ${signsObj.bloodpressure}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Pupillary Response: ${signsObj.pupillaryresponse}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Temperature: ${signsObj.temperature}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `GCS Total: ${signsObj.gcstotal}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
 
                 currentYPosition = drawTextWithWrap(page, `Treatment: ${handoverData.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Allergies: ${handoverData.allergies || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Medications: ${handoverData.medications || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Background: ${handoverData.background || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Adverse Drug Reactions: ${handoverData.adverseDrugReactions || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Adverse Drug Reactions: ${handoverData.drugReactions || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Other: ${handoverData.other || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
             });
 
