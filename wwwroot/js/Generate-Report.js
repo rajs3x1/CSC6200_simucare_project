@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const savedHandoverData = localStorage.getItem('handOver');
             const handoverData = savedHandoverData ? JSON.parse(savedHandoverData) : {};
 
+            let page;
+            let { width, height } = createNewPage();  // Create the first page
 
             function createNewPage() {
-                const page = pdfDoc.addPage();
+                page = pdfDoc.addPage();
                 const { width, height } = page.getSize();
                 const uniSQDims = uniSQImage.scale(0.2);
                 
@@ -47,39 +49,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     height: uniSQDims.height,
                 });
                 
-                return page;
+                return { width, height };  // Return page dimensions
             }
 
-            function drawTextWithWrap(page, text, x, y, font, fontSize, maxWidth, lineHeight) {
-                const lines = wrapText(text, font, fontSize, maxWidth);
-                lines.forEach((line, index) => {
-                    page.drawText(line, {
-                        x: x,
-                        y: y - (index * lineHeight),
-                        size: fontSize,
-                        font: font,
-                        color: rgb(0, 0, 0),
-                    });
-                });
-                return y - (lines.length * lineHeight); // Return the new Y position
-            }
-            
-            
             function wrapText(text, font, fontSize, maxWidth) {
                 const lines = [];
                 const words = text.split(' ');
                 let currentLine = '';
-            
+
                 words.forEach(word => {
                     const testLine = currentLine + (currentLine ? ' ' : '') + word;
                     const testWidth = font.widthOfTextAtSize(testLine, fontSize);
-            
+
                     if (testWidth > maxWidth) {
                         if (currentLine.length > 0) {
                             lines.push(currentLine);
                             currentLine = word;
                         } else {
-                            // For very long words, break them if they exceed maxWidth
+                            // Handle long words
                             const chars = word.split('');
                             let newLine = '';
                             chars.forEach(char => {
@@ -91,23 +78,35 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }
                             });
                             lines.push(newLine);
-                            currentLine = '';
                         }
                     } else {
                         currentLine = testLine;
                     }
                 });
-            
+
                 if (currentLine.length > 0) {
                     lines.push(currentLine);
                 }
-            
+
                 return lines;
             }
-                                
 
-            let page = createNewPage();
-            const { width, height } = page.getSize();
+            function drawTextWithWrap(page, text, x, y, font, fontSize, maxWidth, lineHeight) {
+                const lines = wrapText(text, font, fontSize, maxWidth);
+                lines.forEach(line => {
+                    if (currentYPosition - lineHeight < margin) {
+                        // Move to the next page
+                        const newPageDims = createNewPage();
+                        width = newPageDims.width;
+                        height = newPageDims.height;
+                        currentYPosition = height - margin - padding;
+                    }
+                    page.drawText(line, { x, y: currentYPosition, size: fontSize, font });
+                    currentYPosition -= lineHeight;
+                });
+                return currentYPosition;
+            }
+
             const fontSizeHeading = 15;
             const fontSizeField = 10;
             const fontSizeFooter = 8;
@@ -115,13 +114,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const padding = 10;
             const maxWidth = width - 2 * margin - 2 * padding;
             let currentYPosition = height - margin - padding;
-            
+
             function drawSection(title, contentGenerator, offset = 0, includeTitle = true, drawLines = true) {
                 if (currentYPosition - 40 < margin + padding) {
-                    page = createNewPage();
+                    // Move to the next page
+                    const newPageDims = createNewPage();
+                    width = newPageDims.width;
+                    height = newPageDims.height;
                     currentYPosition = height - margin - padding;
                 }
-            
+
                 if (includeTitle && title) {
                     page.drawText(title, {
                         x: margin + padding,
@@ -131,16 +133,19 @@ document.addEventListener('DOMContentLoaded', function() {
                         color: rgb(0.31, 0.3, 0.4),
                     });
                 }
-            
+
                 currentYPosition -= (includeTitle ? 20 : 0) + offset;
                 contentGenerator();
-            
+
                 if (drawLines) {
                     if (currentYPosition - 20 < margin + padding) {
-                        page = createNewPage();
+                        // Move to the next page
+                        const newPageDims = createNewPage();
+                        width = newPageDims.width;
+                        height = newPageDims.height;
                         currentYPosition = height - margin - padding;
                     }
-            
+
                     page.drawLine({
                         start: { x: margin + padding, y: currentYPosition },
                         end: { x: width - margin - padding, y: currentYPosition },
@@ -150,8 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentYPosition -= 20;
                 }
             }
-            
-            
 
             // Draw Student Details section
             drawSection('Student Details', () => {
@@ -425,32 +428,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentYPosition = drawTextWithWrap(page, `Treatment: ${info.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 
                 // Extract and parse the 'signs' field
-                const signs = handoverData.signs || '';
-                const signsLines = signs.split('\n');
+                const vitalSignsList = paramedicAssessment.vitalSignsList || [];
 
-                // Initialize the signs object with the extracted values
-                const signsObj = {
-                    pulseRate: '',
-                    bloodPressure: '',
-                    pupillaryResponse: '',
-                    temperature: '',
-                    gcsTotal: ''
-                };
-
-                // Map each line of the 'signs' string to the respective property in the 'signsObj' object
-                signsLines.forEach(line => {
-                    const [key, value] = line.split(':').map(part => part.trim());
-                    if (key && value && signsObj.hasOwnProperty(key.toLowerCase().replace(/\s+/g, ''))) {
-                        signsObj[key.toLowerCase().replace(/\s+/g, '')] = value;
-                    }
-                });
+                // Define the fields to extract
+                const signsFields = ['pulseRate', 'bloodPressure', 'pupillaryResponse', 'temperature', 'gcsTotal'];
+                const signsData = signsFields.reduce((acc, field) => {
+                    acc[field] = vitalSignsList.map(v => v[field] || '').join(', ');  // Ensure fields exist or return empty string
+                    return acc;
+                }, {});
                 
-                // Draw the text fields with the updated signsObj object
-                currentYPosition = drawTextWithWrap(page, `Pulse Rate: ${signsObj.pulserate}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Blood Pressure: ${signsObj.bloodpressure}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Pupillary Response: ${signsObj.pupillaryresponse}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `Temperature: ${signsObj.temperature}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
-                currentYPosition = drawTextWithWrap(page, `GCS Total: ${signsObj.gcstotal}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                // Draw the text fields with the updated signsData object
+                currentYPosition = drawTextWithWrap(page, `Pulse Rate: ${signsData.pulserate}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Blood Pressure: ${signsData.bloodpressure}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Pupillary Response: ${signsData.pupillaryresponse}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `Temperature: ${signsData.temperature}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
+                currentYPosition = drawTextWithWrap(page, `GCS Total: ${signsData.gcstotal}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
 
                 currentYPosition = drawTextWithWrap(page, `Treatment: ${handoverData.treatment || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
                 currentYPosition = drawTextWithWrap(page, `Allergies: ${handoverData.allergies || ''}`, margin + padding, currentYPosition, timesRomanFont, fontSizeField, maxWidth, 15);
