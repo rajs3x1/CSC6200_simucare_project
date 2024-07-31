@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (savedParaAssess) {
             const paraAssess = JSON.parse(savedParaAssess);
-            
+            /*
             // Concatenate complaints
             const complaints = paraAssess.complaints.map(c => c.complaint).join(', ');
             document.getElementById('complaints').value = complaints || '';
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const infoComplaints = infoFields.reduce((acc, field) => {
                 acc[field] = paraAssess.complaints.map(c => c[field]).join(', ');
                 return acc;
-            }, {});
+            }, {}); 
 
             document.getElementById('information-complaint').value = `Nature: ${infoComplaints.nature}
 Intensity: ${infoComplaints.intensity}
@@ -73,6 +73,7 @@ Frequency: ${infoComplaints.frequency}
 Impact: ${infoComplaints.impact}
 Attribute: ${infoComplaints.attribute}
 Treatment: ${infoComplaints.treatment}`;
+*/
 
             // Allergies
             const allergies = paraAssess.histories.map(h => h.allergies).join(', ');
@@ -83,6 +84,7 @@ Treatment: ${infoComplaints.treatment}`;
             document.getElementById('drug-reactions').value = adverseDrugs || '';
 
             // Signs
+            /*
             const signsFields = ['pulseRate', 'bloodPressure', 'pupillaryResponse', 'temperature', 'gcsTotal'];
             const signsData = signsFields.reduce((acc, field) => {
                 acc[field] = paraAssess.vitalSignsList.map(v => v[field]).join(', ');
@@ -93,8 +95,12 @@ Treatment: ${infoComplaints.treatment}`;
 Blood Pressure: ${signsData.bloodPressure}
 Pupillary Response: ${signsData.pupillaryResponse}
 Temperature: ${signsData.temperature}
-GCS Total: ${signsData.gcsTotal}`;
+GCS Total: ${signsData.gcsTotal}`;*/
+
+
         }
+
+
     };
 
     loadFormData();
